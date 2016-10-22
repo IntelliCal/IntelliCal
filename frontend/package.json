@@ -1,0 +1,24 @@
+{
+  "name": "hermes",
+  "version": "1.0.0",
+  "description": "1. [Usage](#Usage) 2. [Requirements](#requirements) 3. [Development](#development)     1. [Installing Dependencies](#installing-dependencies)     2. [Tasks](#tasks) 4. [Team](#team) 5. [Contributing](#contributing)",
+  "main": "/backend/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HRR19-Hermes/HRR19-Hermes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HRR19-Hermes/HRR19-Hermes/issues"
+  },
+  "homepage": "https://github.com/HRR19-Hermes/HRR19-Hermes#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}
