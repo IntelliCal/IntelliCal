@@ -1,42 +1,18 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- react scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.min.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.min.js'></script>
+  <meta charset="UTF-8">
+  <title>Schedule Smart</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-  <!-- calendar scheduler scripts -->
-  <script src="codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
-  <link rel="stylesheet" href="codebase/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
-  <script src="Components/calendar.jsx"></script>
+  <script src="https://fb.me/react-with-addons-0.14.6.js"></script>
+  <script src="https://fb.me/react-dom-0.14.6.js"></script>
 
-  <style type="text/css" media="screen">
-      html, body{
-          margin:0px;
-          padding:0px;
-          height:100%;
-          overflow:hidden;
-      }
-  </style>
 </head>
+<body>
 
-<body onload="init();">
-    <div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
-        <div class="dhx_cal_navline">
-            <div class="dhx_cal_prev_button">&nbsp;</div>
-            <div class="dhx_cal_next_button">&nbsp;</div>
-            <div class="dhx_cal_today_button"></div>
-            <div class="dhx_cal_date"></div>
-            <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
-            <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
-            <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
-        </div>
-        <div class="dhx_cal_header">
-        </div>
-        <div class="dhx_cal_data">
-        </div>
-    </div>
+<div id='app'>
+</div>
+<script type="text/babel" src="src/App.jsx"></script>
+<script type="text/babel" src="src/calendar.js"></script>
 </body>
 </html>
