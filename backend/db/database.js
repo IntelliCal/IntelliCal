@@ -4,7 +4,7 @@ var Promise = require("bluebird");
 models.users.hasMany(models.tasks);
 models.tasks.belongsTo(models.users);
 
-var addUser = function(user, test, callback) {
+var addUser = function (user, test, callback) {
   if (typeof user !== 'object') {
     console.error('Function addUser needs an Object {username, password}');
   }
@@ -12,37 +12,54 @@ var addUser = function(user, test, callback) {
     console.error('Function addUser needs test to be a boolean if specified');
   }
   models.users.build(user)
-  .save()
-  .then(function (currentUser) { //current task is the promise made above
-    if (test) {
-      console.log('User saved to database', user, currentUser);
-    }
-    callback(currentUser.dataValues); //return the entry
-  })
-  .error(function(error) {
-    console.error('addUser error occured', user, error);
-  });
+    .save()
+    .then(function (currentUser) { //current task is the promise made above
+      if (test) {
+        console.log('User saved to database', user, currentUser);
+      }
+      callback(null, currentUser.dataValues); //return the entry
+    })
+    .error(function(error) {
+            callback(error, currentUser.dataValues);
+      console.error('addUser error occured', user, error);
+    });
 }
 
 var getAllUsers = function (callback) {
-  models.users.all().then(function (usersArr) {
-    var u = [];
-    usersArr.forEach(function (user) {
-      u.push(user.dataValues);
+  models.users.all()
+    .then(function (usersArr) {
+      var u = [];
+      usersArr.forEach(function (user) {
+        u.push(user.dataValues);
+      });
+      callback(null, u);
+    })
+    .error(function(error) {
+      callback(error, u);
     });
-    console.log('u is: ', u);
-    callback(u);
+}
+
+var deleteUser = function (userId, callback) {
+  models.users.destroy({
+    where: {
+      id: userId
+    }
+  })
+  .then(function (asd) {
+    callback(null, asd);
   })
   .error(function(error) {
-    console.error(error);
+    callback(error, asd);
   });
 }
 
-getAllUsers(function (d) {
- console.log('d is: ',d);
-});
+
 
 var utilities = {};
-utilities.addUser = addUser;
+utilities.getAllUsers = Promise.promisify(getAllUsers); //use as promise to get all users
+utilities.addUserP = Promise.promisify(addUser); //use as promise to add a user
+utilities.deleteUser = Promise.promisify(deleteUser); //use as promise to delete a user
+
+
 
 module.exports = utilities;
