@@ -1,7 +1,7 @@
 
 
 
-## Postgres install and Setup (notes)
+# Postgres install and Setup (notes)
 Looks like you will need to install psql postgresql via homebrew. Need to double check.
 
 `brew install postgresql`
@@ -37,7 +37,7 @@ This is a great cheat sheet for using the Postgres database: [Postgres Cheat She
 
 
 
-## File structure
+# File structure
 
 
 ### Models
@@ -45,4 +45,7 @@ This is where we are keeping all of the models for the project.
 
 ### Models/index.js
 This index file is what will be used to get/access all of the models. It goes through the Models directory and grabs each of the models in it. It will then add each as a key of the export. It is best to use `var models = require("./models");` and then `models.users` to get access to whichever model you want instead of directly accesssing it.
+
+# Database functions
+Require db/databse.js to get db utility functions.
 
