@@ -49,3 +49,23 @@ This index file is what will be used to get/access all of the models. It goes th
 # Database functions
 Require db/databse.js to get db utility functions.
 
+| Function Name | Input                      | Output        |
+|---------------|----------------------------|---------------|
+| addUser       | {user obj}                 | {added user}  |
+| getAllUsers   | none                       | [{user},{},{}]|
+| deleteAUser   | id as 1, '1'               | 0 or 1        |
+| getAUser      | id as 1, '1'               | {user}        |
+| updateAUser   | id as 1, '1' , {properties}| ???           |
+| addTask       | {task obj}                 | {added task}  |
+| getAllTasks   | none                       | [{task},{},{}]|
+| deleteATask   | id as 1, '1'               | 0 or 1        |
+| getATask      | id as 1, '1'               | {task}        |
+| updateATask   | id as 1, '1' , {properties}| ???           |
+
+---
+*NOTE: Relational functions not added yet*
+---
+
+
+
+
