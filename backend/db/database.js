@@ -1,11 +1,11 @@
 var models = require("./models");
 
-// models.users.sync({force:true}).success(function(err){
-//   console.error(err);
-// });
-// models.tasks.sync({force:true}).success(function(err){
-//   console.error(err);
-// });
+models.users.sync({force:true}).error(function(err){
+  console.error(err);
+});
+models.tasks.sync({force:true}).error(function(err){
+  console.error(err);
+});
 
 // model.users.hasMany(Task);
 // Task.belongsTo(User);
