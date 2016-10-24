@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+  width:100%;
+  height:100%;
+}
+
+#app {
+  width:70%;
+  /*margin:auto;*/
+  margin-top:20px;
+  margin-left: 20px;
+}
+
+#calendar {
+  background:blue;
+  height:600px;
+  width:100%;
+}
+
+#header {
+  width:100%;
+  margin-left: 0;
+  height: 30px;
+  color:white;
+  padding-top:0px;
+  font-size: 20px;
+  padding-bottom: 20px;
+  text-align:center;
+}
+
+#header p {
+  width:100%;
+  float:left clear;
+  height:100%;
+  border: 1px solid gold;
+}
+
+#dates {
+  margin-top: 40px;
+}
+#dates > div {
+  width: 14%;
+  float:left;
+}
+
+#dates > div ul {
+  min-height:300px;
+  width:100%;
+  border: 1px solid black;
+}
+
+#dates > div > ul > li {
+  text-align:center;
+  margin-bottom: 50%;
+  border:1px solid black;
+}
+
+#dates p {
+  text-align:center;
+}
+#dates p, #dates li {
+  color:white;
+}
+ul {
+  list-style:none;
+}
+
+.nopaddingmargin {
+  margin: 0;
+  padding:0;
+}
+.weekName {
+  text-align:center;
+}
+
+
+
+
+
+
+
