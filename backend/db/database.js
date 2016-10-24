@@ -1,22 +1,10 @@
 var models = require("./models");
+var Promise = require("bluebird");
 
 models.users.hasMany(models.tasks);
 models.tasks.belongsTo(models.users);
 
-
-// var test = models.users.build({username: 'test', password: 'pass'}).save().then(function(anotherTask) {
-//     // you can now access the currently saved task with the variable anotherTask... nice!
-//     console.log('saved');
-//     models.users.all().then(function(user) {
-//       console.log(user[0].dataValues);
-//       console.log('test');
-//     });
-//   }).error(function(error) {
-//     // Ooops, do some error-handling
-//     console.error(error);
-//   });
-
-var addUser = function(user, test) {
+var addUser = function(user, test, callback) {
   if (typeof user !== 'object') {
     console.error('Function addUser needs an Object {username, password}');
   }
@@ -29,16 +17,30 @@ var addUser = function(user, test) {
     if (test) {
       console.log('User saved to database', user, currentUser);
     }
-    return currentUser.dataValues; //return the entry
+    callback(currentUser.dataValues); //return the entry
   })
   .error(function(error) {
-    console.error(user, error);
+    console.error('addUser error occured', user, error);
   });
 }
 
-addUser({username: 'anotehr', password: 'test'}, true);
+var getAllUsers = function (callback) {
+  models.users.all().then(function (usersArr) {
+    var u = [];
+    usersArr.forEach(function (user) {
+      u.push(user.dataValues);
+    });
+    console.log('u is: ', u);
+    callback(u);
+  })
+  .error(function(error) {
+    console.error(error);
+  });
+}
 
-
+getAllUsers(function (d) {
+ console.log('d is: ',d);
+});
 
 var utilities = {};
 utilities.addUser = addUser;
