@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server",
+    "start": "node server/server.js",
     "build": "babel public/index.js -w --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled,server"
   },
   "author": "",
