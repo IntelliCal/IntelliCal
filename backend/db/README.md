@@ -50,27 +50,44 @@ This is where we are keeping all of the models for the project.
 ### Models/index.js
 This index file is what will be used to get/access all of the models. It goes through the Models directory and grabs each of the models in it. It will then add each as a key of the export. It is best to use `var models = require("./models");` and then `models.users` to get access to whichever model you want instead of directly accesssing it.
 
+---
+
 # Database functions
 Require db/databse.js to get db utility functions.
 
-| Function Name | Input                        | Output        |
-|---------------|------------------------------|---------------|
-| addUser       | {user obj}                   | {added user}  |
-| getAllUsers   | none                         | [{user},{},{}]|
-| deleteAUser   | id as 1 or '1'               | 0 or 1        |
-| getAUser      | id as 1 or '1'               | {user}        |
-| updateAUser   | id as 1 or '1' , {properties}| ???           |
-| addTask       | {task obj}                   | {added task}  |
-| getAllTasks   | none                         | [{task},{},{}]|
-| deleteATask   | id as 1 or '1'               | 0 or 1        |
-| getATask      | id as 1 or '1'               | {task}        |
-| updateATask   | id as 1 or '1' , {properties}| ???           |
+| Function Name      | Input                        | Output        |
+|--------------------|------------------------------|---------------|
+| addUser            | {user obj}                   | {added user}  |
+| getAllUsers        | none                         | [{user},{},{}]|
+| deleteAUser        | id as 1 or '1'               | 0 or 1        |
+| getAUser           | id as 1 or '1'               | {user}        |
+| updateAUser        | id as 1 or '1' , {properties}| ???           |
+| addTask            | {task obj}                   | {added task}  |
+| getAllTasks        | none                         | [{task},{},{}]|
+| deleteATask        | id as 1 or '1'               | 0 or 1        |
+| getATask           | id as 1 or '1'               | {task}        |
+| updateATask        | id as 1 or '1' , {properties}| ???           |
+| getAllTasksForAUser| user id as 1 or '1'          | [{task},{},{}]|
 
 ---
-*NOTE: Relational functions not added yet*
 
----
+#Schema
+Here is the schema for the 2 current tables. 10/24 last updated
 
+### Task
 
+| id           | title | description |           start            |            end              | userId                |
+|--------------|-------|-------------|----------------------------| ----------------------------|-----------------------|
+| Number, Auto | string| string      | javascript date time object|  javascript date time object| foreign key from users|
 
+Example for an entry would be (do not include id) `{title: 'test title', description: 'test description', startTime: new Date(), endTime: new Date(1477439896372), userId: 5}`
 
+Start and end can take either a javacscript date time object or a number corresponding to a date time.
+
+### User
+
+| id           | username | password |
+|--------------|----------|----------|
+| Number, Auto | string   | string   |
+
+There is currently no hashing being done on the passwords. Theses are mostly here as placeholders. Example entry (do not include id) `{username: 'XxSweetUserName87xX', password: '1337Password'}`
