@@ -1,7 +1,8 @@
-var models  = require("./models");
-var Promise = require("bluebird");
-var users   = require("./functions/usersFunctions.js");
-var tasks   = require("./functions/tasksFunctions.js");
+var models     = require("./models");
+var Promise    = require("bluebird");
+var users      = require("./functions/usersFunctions.js");
+var tasks      = require("./functions/tasksFunctions.js");
+var relational = require("./functions/relationalFunctions.js");
 
 //Set the relations
 models.users.hasMany(models.tasks);
@@ -25,6 +26,14 @@ utilities.getATask    = Promise.promisify(tasks.getATask);    //use as promise t
 utilities.updateATask = Promise.promisify(tasks.updateATask); //use as promise to update specific task
 
 //relational
+utilities.getAllTasksForAUser = Promise.promisify(relational.getAllTasksForAUser); //use as promise to get all tasks for a user
 
+utilities.getAllTasksForAUser(1)
+.then(function (result) {
+  console.log(result);
+})
+.error(function (result) {
+  console.error(result);
+});
 
 module.exports = utilities;
