@@ -11,21 +11,21 @@ var addTask = function (task, callback) {
       callback(null, currentUser.dataValues); //return the entry
     })
     .error(function(error) {
-      callback(error, currentUser.dataValues);
+      callback(error);
     });
 }
 
 var getAllTasks = function (callback) {
   models.tasks.all()
     .then(function (result) {
-      var t = [];
+      var taskArr = [];
       result.forEach(function (task) {
-        t.push(task.dataValues);
+        taskArr.push(task.dataValues);
       });
-      callback(null, u);
+      callback(null, taskArr);
     })
     .error(function(error) {
-      callback(error, u);
+      callback(error);
     });
 }
 
@@ -35,11 +35,11 @@ var deleteATask = function (taskId, callback) {
         id: Number(taskId) //incase taskId is given as string
       }
     })
-    .then(function (asd) {
-      callback(null, asd);
+    .then(function (result) {
+      callback(null, result);
     })
     .error(function(error) {
-      callback(error, asd);
+      callback(error);
     });
 }
 
@@ -53,7 +53,7 @@ var getATask = function (taskId, callback) {
       callback(null, result.dataValues);
     })
     .error(function(error) {
-      callback(error, result.dataValues);
+      callback(error);
     });
 }
 
@@ -67,7 +67,7 @@ var updateATask = function (taskId, props, callback) {
       callback(null, result);
     })
     .error(function(error) {
-      callback(error, result);
+      callback(error);
     });
 }
 

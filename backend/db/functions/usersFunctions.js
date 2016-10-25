@@ -11,21 +11,21 @@ var addUser = function (user, callback) {
       callback(null, currentUser.dataValues); //return the entry
     })
     .error(function(error) {
-      callback(error, currentUser.dataValues);
+      callback(error);
     });
 }
 
 var getAllUsers = function (callback) {
   models.users.all()
     .then(function (usersArr) {
-      var u = [];
+      var userArr = [];
       usersArr.forEach(function (user) {
-        u.push(user.dataValues);
+        userArr.push(user.dataValues);
       });
-      callback(null, u);
+      callback(null, userArr);
     })
     .error(function(error) {
-      callback(error, u);
+      callback(error);
     });
 }
 
@@ -35,11 +35,11 @@ var deleteAUser = function (userId, callback) {
         id: Number(userId) //incase userId is given as string
       }
     })
-    .then(function (asd) {
-      callback(null, asd);
+    .then(function (result) {
+      callback(null, result);
     })
     .error(function(error) {
-      callback(error, asd);
+      callback(error);
     });
 }
 
@@ -53,7 +53,7 @@ var getAUser = function (userId, callback) {
       callback(null, result.dataValues);
     })
     .error(function(error) {
-      callback(error, result.dataValues);
+      callback(error);
     });
 }
 
@@ -67,7 +67,7 @@ var updateAUser = function (userId, props, callback) {
       callback(null, result);
     })
     .error(function(error) {
-      callback(error, result);
+      callback(error);
     });
 }
 
