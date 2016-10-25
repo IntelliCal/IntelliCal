@@ -38,7 +38,7 @@ function generateCalendar(NumberOfDays, month, day, year, dates) {
   return day > NumberOfDays ? dates : generateCalendar(NumberOfDays, month, day, year, dates);
 }
 
-class App extends React.Component {
+class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -86,11 +86,5 @@ class App extends React.Component {
   }
 };
 
-
-
-
-
-
-
-ReactDOM.render(<App />, document.getElementById('app'));
+window.Calendar = Calendar;
 
