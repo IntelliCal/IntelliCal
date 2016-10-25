@@ -61,9 +61,11 @@ body {
 #dates p {
   text-align:center;
 }
+
 #dates p, #dates li {
   color:white;
 }
+
 ul {
   list-style:none;
 }

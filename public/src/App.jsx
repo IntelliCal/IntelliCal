@@ -1,6 +1,9 @@
 var dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+function onClick() {
+  console.log(this)
+}
 function Month(month, year, dates){
   this.date = new Date(year, month, 0);
   this.NumberOfDays = this.date.getDate();
@@ -8,7 +11,7 @@ function Month(month, year, dates){
   this.firstday = 1;
   this.year = this.date.getFullYear();
   this.calendar = generateCalendar(this.NumberOfDays, month-1, this.firstday, year, dates);
-  console.log('this.calendar======', this.calendar)
+  // console.log('this.calendar======', this.calendar)
 }
 
 function dateToDay(year, month, day) {
@@ -18,20 +21,18 @@ function dateToDay(year, month, day) {
 function generateCalendar(NumberOfDays, month, day, year, dates) {
   var weekday = dayOfWeek[dateToDay(year, month, day)];
 
-  if (weekday in dates) {
-    // console.log('weekday and day', weekday, day)
-    dates[weekday].push(day);
+  if (dates[weekday]!== undefined) {
+    dates[weekday].push({day:day,events:[]});
   } else {
-    console.log('weekday and day', weekday, day)
       if (day === 1) {
-        var firstIndex = dayOfWeek.indexOf(weekday)
-        for (var i =0; i < firstIndex; i++) {
-          dates[dayOfWeek[i]] = ['-'];
-        }
-        dates[dayOfWeek[firstIndex]] = [1]
-      } else {
-        dates[weekday] = [day];
+      var firstIndex = dayOfWeek.indexOf(weekday)
+      for (var i =0; i < firstIndex; i++) {
+        dates[dayOfWeek[i]] = [{day:'-',events:[]}];
       }
+      dates[dayOfWeek[firstIndex]] = [{day:1,events:[]}]
+    } else {
+      dates[weekday] = [{day:day,events:[]}];
+    }
   }
   day++;
   return day > NumberOfDays ? dates : generateCalendar(NumberOfDays, month, day, year, dates);
@@ -48,7 +49,6 @@ class App extends React.Component {
   generateCalendar() {
     var month =  {};
     month = new Month(10, 2016, month);
-    console.log(month)
     return month;
   }
 
@@ -68,11 +68,13 @@ class App extends React.Component {
         <div id="dates">
           {calendar.map(function(week, i) {
             return (
-              <div className="nopaddingmargin">
+             <div className="nopaddingmargin">
                 <p className="weekName">{dayOfWeek[i]}</p>
                 <ul className="nopaddingmargin">
                 {week.map(function(day, ind) {
-                  return <li> {day} </li>
+                  // console.log('we are getting into the week part despite what erica thinks')
+                  // console.log('day is: ',day)
+                  return <li onClick={onClick.bind(day)}> {day.day} </li>
                 })}
                 </ul>
               </div>
@@ -92,22 +94,3 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
-
-    // <div>
-    //   <Monday />
-    //   </div>
-    //   <div>
-    //   <Tuesday />
-    //   </div>
-    //   <div>
-    //   <Wednesday />
-    //   </div>
-    //   <div>
-    //   <Thursday />
-    //   </div>
-    //   <div>
-    //   <Friday />
-    //   </div>
-    //   <div>
-    //   <Saturday />
-    //   </div>
