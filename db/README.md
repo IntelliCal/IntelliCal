@@ -53,7 +53,7 @@ This index file is what will be used to get/access all of the models. It goes th
 ---
 
 # Database functions
-Require db/databse.js to get db utility functions.
+Require db/database.js to get db utility functions.
 
 | Function Name      | Input                        | Output        |
 |--------------------|------------------------------|---------------|
