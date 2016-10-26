@@ -8,4 +8,6 @@ Each time you make a change to the REACT app you'll need to rebuiuld the bundle.
 
 To rebuild the bundle run `npm run webpack-build`. That will start a script to rebuild webpack and start up nodemon for port 1337.
 
-*Lucas* is working on trimming down the bundle.js file and getting a production bundle.js going.
+~~**Lucas** is working on trimming down the bundle.js file and getting a production bundle.js going.~~
+
+Got the bundle.js cut down from 2MB to ~350KB. Line 1 is commented out and is how the code is meant to be run. On line 2 we are forcing the webpack.config to run as if it were in a dev enviornment. Choose which you need to use as needed.
