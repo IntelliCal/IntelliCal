@@ -32,3 +32,5 @@ bower_components/
 # ignored file types
 *.DS_Store
 *.DS_store
+
+bundle.js
