@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
+    "webpack-build": "webpack && nodemon server/server.js",
     "devStart": "webpack-dev-server --content-base src --inline --hot",
     "build": "babel public/index.js -w --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled,server"
   },
