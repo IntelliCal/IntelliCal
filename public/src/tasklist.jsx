@@ -1,17 +1,21 @@
+import React from 'react';
+// import ReactDOM from 'react-dom';
+
 var TaskList = ({tasks, handleTaskListEntryClick}) => (
-  <div className="tasklist">
-    {task.map((task) =>
-      <Tasks
-        task={task}
-        handleTaskListEntryClick={handleTaskListEntryClick}
-      />
-    )}
-  </div>
+<div></div>
 );
 
-TaskList.propTypes = {
-  tasks: React.PropTypes.array.isRequired
-};
+// TaskList.propTypes = {
+//   task: React.PropTypes.array.isRequired
+// };
 
-window.TaskList = TaskList;
+module.exports = TaskList;
 
+// <div className="tasklist">
+//     {tasks.map((task) =>
+//       <Tasks
+//         task={task}
+//         handleTaskListEntryClick={handleTaskListEntryClick}
+//       />
+//     )}
+//   </div>
