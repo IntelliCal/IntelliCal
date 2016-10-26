@@ -10,7 +10,7 @@ var port = process.env.PORT || 1337;
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use('/test', express.static(path.join(__dirname + '/../public')));
+app.use('/test', express.static(path.resolve(__dirname + '/../public')));
 app.use('/test/node_modules', express.static(path.join(__dirname + '/../node_modules')));
 
 app.get('/', function(req, res, next) {

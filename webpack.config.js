@@ -1,25 +1,35 @@
+var debug = process.env.NODE_ENV !== 'production';
+var webpack = require('webpack');
+var path = require('path');
+
 module.exports = {
-  entry: './public/main.js',
-  output: {
-    path: './public',
-    filename: 'bundle.js'
-  },
-  devServer: {
-    inline: true,
-    contentBase: './public',
-    port: 8100
-  },
+  context: path.join(__dirname, 'public'),
+  // devtool: debug ? 'sourcemap' : null,
+  devtool: debug ? 'inline-sourcemap' : null,
+  // devtool: debug ? 'inline-eval-cheap-source-map' : null,
+  entry: './main.js',
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query:
-          {
-            presets:['react']
-          }
+        test: /\.jsx?$/,
+        exclude: /(node_modules|server|db)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015']
+          // ,
+          // plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-class-properties']
+        }
       }
     ]
-  }
-}
+  },
+  output: {
+    path: __dirname + '/public/',
+    // path: './public',
+    filename: 'bundle.js'
+  },
+  plugins: debug ? [] : [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  ]
+};
