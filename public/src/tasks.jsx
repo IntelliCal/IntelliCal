@@ -1,17 +1,19 @@
+import React from 'react';
+// import ReactDOM from 'react-dom';
 
-var Tasks = ({tasks, handleTaskListEntryClick}) => (
+var Tasks = ({task, handleTaskListEntryClick}) => (
   <div className="tasks">
     <div className="tasks-body">
-      <div onClick={() => handleTaskListEntryClick(tasks)}>
-        {tasks.title}
+      <div onClick={() => handleTaskListEntryClick(task)}>
+        {task.title}
       </div>
-      <div className="tasks-description">{tasks.description}</div>
+      <div className="tasks-description">{task.description}</div>
     </div>
   </div>
 );
 
-Tasks.propTypes = {
-  tasks: React.PropTypes.object.isRequired
-};
+// Tasks.propTypes = {
+//   tasks: React.PropTypes.object.isRequired
+// };
 
-window.Tasks = Tasks;
+module.exports = Tasks;

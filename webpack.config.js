@@ -27,13 +27,13 @@ module.exports = {
     // path: './public',
     filename: 'bundle.js'
   },
-  externals: {
-    'react': 'React'
-  },
+  // externals: {
+  //   'react': 'React'
+  // },
 
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: true }),
   ]
 };
