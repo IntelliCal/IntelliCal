@@ -6,7 +6,7 @@ body {
 }
 
 #app {
-  width:70%;
+  width:100%;
   /*margin:auto;*/
   margin-top:10px;
   margin-left: 20px;
@@ -14,30 +14,14 @@ body {
 
 #calendar {
   background:#5F9EA0;
-  min-height:650px;
-  width:100%;
+  height:70%;
+  width:70%;
   border:2px solid black;
+  display: inline-block;
 }
-
-#header {
+#calApp {
   width:100%;
-  margin-left: 0;
-  height: 50px;
-  color:white;
-  padding-top:20px;
-  font-size: 40px;
-  /*padding-bottom: 5px;*/
-  text-align:center;
 }
-
-#header p {
-  width:99.8%;
-  float:left clear;
-  height:100%;
-  margin-bottom: 0px;
-  margin-top:0px;
-}
-
 #dates {
   margin-top: 40px;
 }
@@ -51,23 +35,33 @@ body {
   width:100%;
   border: 1px solid black;
 }
-
 #dates > div > ul > li {
   text-align:center;
   margin-bottom: 50%;
   border:1px solid black;
 }
-
 #dates p {
   text-align:center;
 }
-
 #dates p, #dates li {
   color:white;
 }
-
-ul {
-  list-style:none;
+#header {
+  width:100%;
+  margin-left: 0;
+  height: 50px;
+  color:white;
+  padding-top:20px;
+  font-size: 40px;
+  /*padding-bottom: 5px;*/
+  text-align:center;
+}
+#header p {
+  width:99.8%;
+  float:left;
+  height:100%;
+  margin-bottom: 0px;
+  margin-top:0px;
 }
 
 .nopaddingmargin {
@@ -79,7 +73,21 @@ ul {
   margin-top: 0px;
 }
 
+.tasklist {
+  width: 25%;
+  float:right;
+  display: inline-block;
+}
+.inputTasks {
+  margin-top: 10px;
+}
+.tasks-description {
+  font-size: .8em;
+}
 
+ul {
+  list-style:none;
+}
 
 
 
