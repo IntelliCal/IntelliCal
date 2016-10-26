@@ -5,6 +5,8 @@ var morgan = require('morgan');
 var path = require ('path');
 var bodyParser = require('body-parser');
 
+var db = require('../db/database.js');
+
 
 var port = process.env.PORT || 1337;
 
@@ -14,7 +16,13 @@ app.use('/test', express.static(path.resolve(__dirname + '/../public')));
 app.use('/test/node_modules', express.static(path.join(__dirname + '/../node_modules')));
 
 app.get('/', function(req, res, next) {
-  res.send('Hello Everyone');
+  console.log('GET request for /');
+  db.getAllTasks().then(function(result) {
+    res.send(result);
+  }).error(function(result) {
+    console.error(result);
+  }
+  );
 });
 
 

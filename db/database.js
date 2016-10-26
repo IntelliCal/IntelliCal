@@ -28,12 +28,12 @@ utilities.updateATask = Promise.promisify(tasks.updateATask); //use as promise t
 //relational
 utilities.getAllTasksForAUser = Promise.promisify(relational.getAllTasksForAUser); //use as promise to get all tasks for a user
 
-utilities.getAllTasksForAUser(1)
-.then(function (result) {
-  console.log(result);
-})
-.error(function (result) {
-  console.error(result);
-});
+// utilities.getAllTasks()
+// .then(function (result) {
+//   console.log(result);
+// })
+// .error(function (result) {
+//   console.error(result);
+// });
 
 module.exports = utilities;
