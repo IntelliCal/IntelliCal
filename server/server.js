@@ -16,13 +16,7 @@ app.use('/test', express.static(path.resolve(__dirname + '/../public')));
 app.use('/test/node_modules', express.static(path.join(__dirname + '/../node_modules')));
 
 app.get('/', function(req, res, next) {
-  console.log('GET request for /');
-  db.getAllTasks().then(function(result) {
-    res.send(result);
-  }).error(function(result) {
-    console.error(result);
-  }
-  );
+  res.send('all is working');
 });
 
 
