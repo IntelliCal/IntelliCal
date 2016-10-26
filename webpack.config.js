@@ -7,7 +7,7 @@ module.exports = {
   // devtool: debug ? 'sourcemap' : null,
   devtool: debug ? 'inline-sourcemap' : null,
   // devtool: debug ? 'inline-eval-cheap-source-map' : null,
-  entry: './main.js',
+  entry: './src/main.js',
   module: {
     loaders: [
       {
@@ -27,6 +27,10 @@ module.exports = {
     // path: './public',
     filename: 'bundle.js'
   },
+  externals: {
+    'react': 'React'
+  },
+
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
