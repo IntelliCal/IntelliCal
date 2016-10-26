@@ -14,7 +14,6 @@ function Month(month, year, dates){
   this.firstday = 1;
   this.year = this.date.getFullYear();
   this.calendar = generateCalendar(this.NumberOfDays, month-1, this.firstday, year, dates);
-  // console.log('this.calendar======', this.calendar)
 }
 
 function dateToDay(year, month, day) {
