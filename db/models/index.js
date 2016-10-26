@@ -5,7 +5,7 @@ var fs        = require("fs");
 var path      = require("path");
 var Sequelize = require("sequelize");
 var sequelize = new Sequelize(process.env.POSTGRESQL_LOCAL_DB, "", "", {
-    host: process.env.POSTGRESQL_LOCAL_HOST,
+    host: process.env.HEROKU_POSTGRESQL_IVORY_URL || process.env.POSTGRESQL_LOCAL_HOST,
     dialect: 'postgres',
     freezeTableName: true,
     define: {
