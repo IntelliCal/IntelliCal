@@ -49,4 +49,11 @@ You may need to specify the app: `heroku run bash --app app-name-1234`
 
 **See db/README.md for notes on connecting to the deployed db.**
 
+## The bundle.js file
+
+We are having some workflow issues with the bundle.js file and webpack. to get around this we are adding bundle.js to the gitignore, and then using an alternate script to forcibly write to the master branch's bundle.js.
+
+Bot 100% sure that this is going to work ok but well see.
+
+Script to update bundle: `webpack &&  git add -f public/bundle.js "Lucas's bundle.js script" && git push HRR19-Hermes HEAD:bundle-test`
 
