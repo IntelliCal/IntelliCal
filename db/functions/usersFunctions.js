@@ -78,7 +78,7 @@ var updateAUser = function (userId, props, callback) {
       }
     })
     .then(function (result) {
-      callback(null, result);
+      callback(null, result[0]);
     })
     .error(function(error) {
       callback(error);
