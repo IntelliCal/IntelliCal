@@ -10,12 +10,12 @@ class CustomTask extends React.Component {
   constructor(props){
     super(props)
     this.tasks = [];
-    this.currentId=1;
+    this.currentId=0;
     this.state ={
       title:'',
       description:'',
       startTime:'',
-      endTime:'',
+      endTime:''
     }
     this.handleChange1 = this.handleChange1.bind(this)
     this.handleChange2 = this.handleChange2.bind(this)
@@ -26,7 +26,6 @@ class CustomTask extends React.Component {
 
   handleChange1(event){
     this.setState({title: event.target.value})
-    console.log('in the change event', this.state.title)
   }
 
   handleChange2(event){
@@ -42,6 +41,7 @@ class CustomTask extends React.Component {
   }
 
   addTask(event){
+    event.preventDefault();
     var task = {
       id: this.currentId,
       title: this.state.title,
@@ -49,9 +49,15 @@ class CustomTask extends React.Component {
       startTime: this.state.startTime,
       endTime: this.state.endTime
     }
-    this.currentId ++
-    alert('field value is', this.state.title)
+    this.currentId++
     this.tasks.push(task)
+    console.log('the array of tasks is: ',this.tasks)
+    this.setState({
+      title:'',
+      description:'',
+      startTime:'',
+      endTime:''
+    })
   }
 
   render () {
