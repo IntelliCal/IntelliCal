@@ -109,6 +109,8 @@ You can see the name spaces by using `\dt`
 
 ~~If you try to search for something it may not work. So you'll need to set the search path: `SET search_path = '<name space found Owner>';`~~
 
+Open postgres psql on deployment: `heroku pg:psql COLOR_URL_NAME`
+May also need to specify the app: `heroku pg:psql COLOR_URL_NAME --app app-name-1234`
 
 
 

@@ -11,7 +11,7 @@ module.exports = function(app, express) {
       })
       .error(function (error) {
         console.error(error);
-        res.json(error);
+        res.status(400).json(error);
       })
   }
 

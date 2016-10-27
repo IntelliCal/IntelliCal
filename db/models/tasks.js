@@ -23,6 +23,10 @@ module.exports = function(sequelize, DataTypes){
     endTime: {
       type: DataTypes.DATE,
       field: "end"
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      field: "userId"
     }},
     {
        tableName: 'tasks'

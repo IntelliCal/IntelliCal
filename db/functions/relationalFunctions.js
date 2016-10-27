@@ -11,7 +11,7 @@ var getAllTasksForAUser = function (userId, callback) {
       result.forEach(function (res) {
         resArr.push(res.dataValues); //grab the data values out to return later
       });
-      callback(null, resArr);
+      callback(null, resArr); //No errors, if no tasks for user returns []
     })
     .error(function(error) {
       callback(error);
