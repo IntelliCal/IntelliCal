@@ -91,3 +91,13 @@ Start and end can take either a javacscript date time object or a number corresp
 | Number, Auto | string   | string   |
 
 There is currently no hashing being done on the passwords. Theses are mostly here as placeholders. Example entry (do not include id) `{username: 'XxSweetUserName87xX', password: '1337Password'}`
+
+
+# Heroku Postgres
+
+## index.js connection
+
+
+
+
+
