@@ -6,13 +6,17 @@ var path      = require("path");
 var Sequelize = require("sequelize");
 
 if (process.env.HEROKU_POSTGRESQL_IVORY_URL) {
-    var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_IVORY_URL, "", "", {
-      dialect:  'postgres',
-      protocol: 'postgres',
-      port:     match[4],
-      host:     match[3],
-      logging:  true //false
-    });
+var match = process.env.HEROKU_POSTGRESQL_IVORY_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/)
+sequelize = new Sequelize(match[5], match[1], match[2], {
+    dialect:  'postgres',
+    protocol: 'postgres',
+    port:     match[4],
+    host:     match[3],
+    logging: false,
+    dialectOptions: {
+        ssl: true
+    }
+});
 } else {
     var sequelize = new Sequelize(process.env.POSTGRESQL_LOCAL_DB, "", "", {
         host: process.env.POSTGRESQL_LOCAL_HOST,
