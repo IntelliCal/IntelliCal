@@ -2,6 +2,7 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Calendar from './Calendar.jsx';
 import TaskList from './tasklist.jsx';
+import CustomTask from './customTask.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,11 @@ class App extends React.Component {
         <div id="calApp">
           <Calendar />
 
-          <TaskList />
+          <div className='calTasks'>
+            <TaskList />
+
+            <CustomTask />
+          </div>
         </div>
       </MuiThemeProvider>
     )

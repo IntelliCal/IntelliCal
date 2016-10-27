@@ -1,11 +1,6 @@
 import React from 'react';
 import Tasks from './tasks.jsx';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import TextField from 'material-ui/TextField';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-injectTapEventPlugin();
+
 
 const style = {
   marginRight: 20,
@@ -39,6 +34,7 @@ function addToTaskList() {
 
 var TaskList = ({tasks, handleTaskListEntryClick}) => (
   <div className="tasklist">
+      <h2> TASKS!!!!! </h2>
       {dummytasks.map((task) =>
         <div>
           <Tasks
@@ -48,15 +44,7 @@ var TaskList = ({tasks, handleTaskListEntryClick}) => (
           <br></br>
         </div>
       )}
-    <div className="inputTasks">
-      <TextField
-        ref='taskname'
-        hintText="The hint text can be as long as you want, it will wrap."
-      /><br />
-      <FloatingActionButton mini={true} style={style} onClick={addToTaskList}>
-        <ContentAdd />
-      </FloatingActionButton>
-    </div>
+    
   </div>
 );
 
