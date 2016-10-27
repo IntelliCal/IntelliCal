@@ -4,8 +4,8 @@ var app = express();
 var port = process.env.PORT || 1337;
 
 //router and middleware for rest api
-require('./routes.js')(app, express);
 require('./middleware.js')(app, express);
+require('./routes.js')(app, express);
 
 
 app.listen(port, function(){
