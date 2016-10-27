@@ -1,7 +1,7 @@
 //During the test the env variable is set to test
 process.env.NODE_ENV = 'test';
 
-var Tasks = require('../db/models/tasks.js');
+var Tasks = require('../../db/models/tasks.js');
 
 //Require the dev-dependencies
 var chai = require('chai');
