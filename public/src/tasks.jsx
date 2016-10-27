@@ -1,10 +1,11 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
 
-var Tasks = ({task, handleTaskListEntryClick}) => (
+var Tasks = ({task, handleClick}) => (
+
   <div className="tasks">
     <div className="tasks-body">
-      <div onClick={() => handleTaskListEntryClick(task)}>
+      <div onClick={() => handleClick(task)}>
         {task.title}
       </div>
       <div className="tasks-description">{task.description}</div>
