@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "mocha --timeout 10000",
+    "test": "mocha server/test --timeout 10000",
     "start": "node server/server.js",
     "webpack-build": "webpack && nodemon server/server.js",
     "devStart": "webpack-dev-server --content-base src --inline --hot",
