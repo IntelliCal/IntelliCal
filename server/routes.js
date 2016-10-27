@@ -32,7 +32,7 @@ module.exports = function(app, express) {
       responseHandling(req, res, db.deleteATask(req.params.task_id));
     })
     .put(function(req, res) {
-      responseHandling(req, res, db.updateATask(req.params.task_id));
+      responseHandling(req, res, db.updateATask(req.params.task_id, req.body));
     });
 
   //users
