@@ -61,12 +61,12 @@ Require db/database.js to get db utility functions.
 | getAllUsers        | /api/users             | GET   |                              | [{user},{},{}]|
 | deleteAUser        | /api/users/:user_id    | DELETE| id as 1 or '1'               | 0 or 1        |
 | getAUser           | /api/users/:user_id    | GET   | id as 1 or '1'               | {user}        |
-| updateAUser        | /api/users/:user_id    | PUT   | id as 1 or '1' , {properties}| ???           |
+| updateAUser        | /api/users/:user_id    | PUT   | id as 1 or '1' , {properties}| [0 or 1]      |
 | addTask            | /api/tasks             | PUT   | {task obj}                   | {added task}  |
 | getAllTasks        | /api/tasks             | GET   |                              | [{task},{},{}]|
 | deleteATask        | /api/tasks/:task_id    | DELETE| id as 1 or '1'               | 0 or 1        |
 | getATask           | /api/tasks/:task_id    | GET   | id as 1 or '1'               | {task}        |
-| updateATask        | /api/tasks/:task_id    | PUT   | id as 1 or '1' , {properties}| ???           |
+| updateATask        | /api/tasks/:task_id    | PUT   | id as 1 or '1' , {properties}| [0 or 1]      |
 | getAllTasksForAUser| /api/usertasks/:user_id| GET   | user id as 1 or '1'          | [{task},{},{}]|
 
 ---
