@@ -12,6 +12,7 @@ To rebuild the bundle run `npm run webpack-build`. That will start a script to r
 
 Got the bundle.js cut down from 2MB to ~350KB. Line 1 is commented out and is how the code is meant to be run. On line 2 we are forcing the webpack.config to run as if it were in a dev enviornment. Choose which you need to use as needed.
 
+---
 # Git goodies
 
 Got sick of running `npm install` after rebasing. Run this command in your terminal to use `gitup` to do everything for you:
@@ -19,6 +20,7 @@ Got sick of running `npm install` after rebasing. Run this command in your termi
 
 Then use `gitup` on your `master` branch.
 
+---
 # TODO:
 
 - in db functions, need to return an error for specific lookups (getATask, deleteAUser, updateA etc...) that do not return a result. (when there is nothing in the database for the lookup)
@@ -29,10 +31,22 @@ Then use `gitup` on your `master` branch.
 - Add signup for users.
 - Protect calendar view with Authentication.
 
-
+---
 # Testing:
 
 - db functions
 - api calls
 - locally everything is working
 - on deployment user api calls are working, but userId is not found in task table.
+
+---
+# Heroku fun
+[Adding users to the heroku app](https://devcenter.heroku.com/articles/collaborating)
+`heroku access:add user@email.com`
+
+Open a terminal to deployment: `heroku run bash`
+You may need to specify the app: `heroku run bash --app app-name-1234`
+
+**See db/README.md for notes on connecting to the deployed db.**
+
+

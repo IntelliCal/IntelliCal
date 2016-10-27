@@ -41,7 +41,7 @@ var deleteAUser = function (userId, callback) {
       }
     })
     .then(function (result) {
-      callback(null, result);
+        callback(null, result); //error handling not needed, no user to delete returns 0
     })
     .error(function(error) {
       callback(error);
@@ -55,7 +55,11 @@ var getAUser = function (userId, callback) {
       }
     })
     .then(function (result) {
-      callback(null, result.dataValues);
+      if (result === null) {
+        callback({cause: 'No such user to get'}, result);
+      } else {
+        callback(null, result.dataValues);
+      }
     })
     .error(function(error) {
       callback(error);
@@ -78,7 +82,7 @@ var updateAUser = function (userId, props, callback) {
       }
     })
     .then(function (result) {
-      callback(null, result[0]);
+      callback(null, result[0]); //error handling not needed, no user to update results in 0
     })
     .error(function(error) {
       callback(error);

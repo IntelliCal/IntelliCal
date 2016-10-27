@@ -55,7 +55,11 @@ var getATask = function (taskId, callback) {
       }
     })
     .then(function (result) {
-      callback(null, result.dataValues);
+      if (result === null) { //if there is no result from the search
+        callback({cause: 'No such task to get'}, result); //send back error
+      } else {
+        callback(null, result.dataValues); //search was good.
+      }
     })
     .error(function(error) {
       callback(error);
