@@ -55,19 +55,19 @@ This index file is what will be used to get/access all of the models. It goes th
 # Database functions
 Require db/database.js to get db utility functions.
 
-| Function Name      | Input                        | Output        |
-|--------------------|------------------------------|---------------|
-| addUser            | {user obj}                   | {added user}  |
-| getAllUsers        | none                         | [{user},{},{}]|
-| deleteAUser        | id as 1 or '1'               | 0 or 1        |
-| getAUser           | id as 1 or '1'               | {user}        |
-| updateAUser        | id as 1 or '1' , {properties}| ???           |
-| addTask            | {task obj}                   | {added task}  |
-| getAllTasks        | none                         | [{task},{},{}]|
-| deleteATask        | id as 1 or '1'               | 0 or 1        |
-| getATask           | id as 1 or '1'               | {task}        |
-| updateATask        | id as 1 or '1' , {properties}| ???           |
-| getAllTasksForAUser| user id as 1 or '1'          | [{task},{},{}]|
+| Function Name      | api url                | Method| Input                        | Output        |
+|--------------------|------------------------|-------|------------------------------|---------------|
+| addUser            | /api/users             | PUT   | {user obj}                   | {added user}  |
+| getAllUsers        | /api/users             | GET   |                              | [{user},{},{}]|
+| deleteAUser        | /api/users/:user_id    | DELETE| id as 1 or '1'               | 0 or 1        |
+| getAUser           | /api/users/:user_id    | GET   | id as 1 or '1'               | {user}        |
+| updateAUser        | /api/users/:user_id    | PUT   | id as 1 or '1' , {properties}| ???           |
+| addTask            | /api/tasks             | PUT   | {task obj}                   | {added task}  |
+| getAllTasks        | /api/tasks             | GET   |                              | [{task},{},{}]|
+| deleteATask        | /api/tasks/:task_id    | DELETE| id as 1 or '1'               | 0 or 1        |
+| getATask           | /api/tasks/:task_id    | GET   | id as 1 or '1'               | {task}        |
+| updateATask        | /api/tasks/:task_id    | PUT   | id as 1 or '1' , {properties}| ???           |
+| getAllTasksForAUser| /api/usertasks/:user_id| GET   | user id as 1 or '1'          | [{task},{},{}]|
 
 ---
 
@@ -77,7 +77,7 @@ Here is the schema for the 2 current tables. 10/24 last updated
 ### Task
 
 | id           | title | description |           start            |            end              | userId                |
-|--------------|-------|-------------|----------------------------| ----------------------------|-----------------------|
+|--------------|-------|-------------|----------------------------|-----------------------------|-----------------------|
 | Number, Auto | string| string      | javascript date time object|  javascript date time object| foreign key from users|
 
 Example for an entry would be (do not include id) `{title: 'test title', description: 'test description', startTime: new Date(), endTime: new Date(1477439896372), userId: 5}`
