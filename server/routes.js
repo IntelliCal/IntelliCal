@@ -68,7 +68,7 @@ module.exports = function(app, express) {
 
   //test function to make sure api is working
   router.get('/deploy', function(req, res) {
-    res.json({ message: 'Lucas deployment test' });
+    res.json({ message: 'Lucas deployment test 2' });
   });
 
   app.use('/api', router);
