@@ -8,6 +8,8 @@ require('./middleware.js')(app, express);
 require('./routes.js')(app, express);
 
 
-app.listen(port, function(){
+app.listen(port, function() {
   console.log('Hermes is listening on port: ', port);
 })
+
+module.exports = app; // for testing
