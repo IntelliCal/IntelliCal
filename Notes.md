@@ -18,3 +18,17 @@ Got sick of running `npm install` after rebasing. Run this command in your termi
 `echo "alias gitup='git pull --rebase upstream master && npm install'" >> ~/.bash_profile && source ~/.bash_profile && echo '\e[31mgitup\e[39m command ready'`
 
 Then use `gitup` on your `master` branch.
+
+# TODO:
+
+- in db functions, need to return an error for specific lookups (getATask, deleteAUser, updateA etc...) that do not return a result. (when there is nothing in the database for the lookup)
+- Enable automatic Heroku deployment off of Hermes master branch.
+- Write instructions for manual Heroku pushes/testing
+- Add testing folder that tests all functions, all api calls, any other server stuff, and the front end.
+
+# Testing:
+
+- All user, task, relation functions tested and working locally
+- All user, task, relation functions tested and working on production
+- All user, task, relation api calls tested and working locally
+- All user, task, relation api calls tested and working on production
