@@ -74,15 +74,27 @@ body {
 }
 
 .tasklist {
-  width: 25%;
+  width: 100%;
   float:right;
   display: inline-block;
 }
 .inputTasks {
   margin-top: 10px;
 }
+
+.inputForm {
+  display: inline-block;
+  width: 100%;
+  float:right;
+}
 .tasks-description {
   font-size: .8em;
+}
+
+.calTasks {
+  width:25%;
+  float:right;
+  display: inline-block;
 }
 
 ul {
