@@ -33,19 +33,19 @@ function addToTaskList() {
 
 }
 
-var TaskList = ({tasks, handleTaskListEntryClick}) => (
+var TaskList = ({tasks, handleClick}) => (
   <div className="tasklist">
       <h2> TASKS!!!!! </h2>
       {dummytasks.map((task) =>
         <div>
           <Tasks
             task={task}
-            handleTaskListEntryClick={handleTaskListEntryClick}
+            handleClick={handleClick}
           />
           <br></br>
         </div>
       )}
-    
+
   </div>
 );
 

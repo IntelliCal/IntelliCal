@@ -7,16 +7,26 @@ import CustomTask from './customTask.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      task: []
+    }
   }
 
+  handleClick(task) {
+    this.state.task.push(task);
+    console.log(this.state.task);
+  }
+
+
   render() {
+
     return (
       <MuiThemeProvider>
         <div id="calApp">
-          <Calendar />
+          <Calendar tasks={this.state.task}/>
 
           <div className='calTasks'>
-            <TaskList />
+            <TaskList handleClick={this.handleClick.bind(this)}/>
 
             <CustomTask />
           </div>
