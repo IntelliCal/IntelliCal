@@ -25,10 +25,14 @@ Then use `gitup` on your `master` branch.
 - Enable automatic Heroku deployment off of Hermes master branch.
 - Write instructions for manual Heroku pushes/testing
 - Add testing folder that tests all functions, all api calls, any other server stuff, and the front end.
+- Add authentication for users.
+- Add signup for users.
+- Protect calendar view with Authentication.
+
 
 # Testing:
 
-- All user, task, relation functions tested and working locally
-- All user, task, relation functions tested and working on production
-- All user, task, relation api calls tested and working locally
-- All user, task, relation api calls tested and working on production
+- db functions
+- api calls
+- locally everything is working
+- on deployment user api calls are working, but userId is not found in task table.
