@@ -1,10 +1,15 @@
 var models = require("./../models");
 
 var addTask = function (task, callback) {
-  if (typeof task !== 'object') {
-    console.error('Function addUser needs an Object {username, password}');
-    return;
+  if (typeof task !== 'object' ) {
+    if (JSON.parse(task) === 'object') {
+      user = JSON.parse(task);
+    } else {
+      console.error('Function addTask needs an Object {username, password}');
+      return;
+    }
   }
+
   models.tasks.build(task)
     .save()
     .then(function (currentUser) { //current task is the promise made above
@@ -58,13 +63,22 @@ var getATask = function (taskId, callback) {
 }
 
 var updateATask = function (taskId, props, callback) {
+  if (typeof props !== 'object' ) {
+    if (JSON.parse(props) === 'object') {
+      props = JSON.parse(props);
+    } else {
+      console.error('Function addTask needs an Object {username, password}');
+      return;
+    }
+  }
+
   models.tasks.update(props, {
       where: {
         id: Number(taskId) //incase taskId is given as string
       }
     })
     .then(function (result) {
-      callback(null, result);
+      callback(null, result[0]);
     })
     .error(function(error) {
       callback(error);

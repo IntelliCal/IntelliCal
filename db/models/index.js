@@ -4,19 +4,40 @@
 var fs        = require("fs");
 var path      = require("path");
 var Sequelize = require("sequelize");
-var sequelize = new Sequelize(process.env.POSTGRESQL_LOCAL_DB, "", "", {
-    host: process.env.POSTGRESQL_LOCAL_HOST,
-    dialect: 'postgres',
-    freezeTableName: true,
-    define: {
-        timestamps: false
-    },
-    pool: {
-        max: 9,
-        min: 0,
-        idle: 10000
+
+if (process.env.HEROKU_POSTGRESQL_IVORY_URL) {
+var match = process.env.HEROKU_POSTGRESQL_IVORY_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/)
+sequelize = new Sequelize(match[5], match[1], match[2], {
+    dialect:  'postgres',
+    protocol: 'postgres',
+    port:     match[4],
+    host:     match[3],
+    logging: false,
+    dialectOptions: {
+        ssl: true
     }
 });
+} else {
+    var sequelize = new Sequelize(process.env.POSTGRESQL_LOCAL_DB, "", "", {
+        host: process.env.POSTGRESQL_LOCAL_HOST,
+        dialect: 'postgres',
+        freezeTableName: true,
+        define: {
+            timestamps: false
+        },
+        pool: {
+            max: 9,
+            min: 0,
+            idle: 10000
+        }
+    });
+}
+
+
+
+
+
+
 
 var db = {};
 
