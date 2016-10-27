@@ -41,6 +41,13 @@ Then use `gitup` on your `master` branch.
 
 ---
 # Heroku fun
-Adding users to the heroku app:
-https://devcenter.heroku.com/articles/collaborating
+[Adding users to the heroku app](https://devcenter.heroku.com/articles/collaborating)
+`heroku access:add user@email.com`
+
+Open a terminal to deployment: `heroku run bash`
+You may need to specify the app: `heroku run bash --app app-name-1234`
+
+Open postgres psql on deployment: `heroku pg:psql COLOR_URL_NAME`
+May also need to specify the app: `heroku pg:psql COLOR_URL_NAME --app app-name-1234`
+
 
