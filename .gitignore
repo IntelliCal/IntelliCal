@@ -1,4 +1,6 @@
 ### node etc ###
+#ignored files
+bundle.js
 
 # Logs
 logs
