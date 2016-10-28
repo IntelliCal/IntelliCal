@@ -32,19 +32,36 @@ function addToTaskList() {
   console.log(this, TextField.value)
 
 }
-
+//I think we need to make this a class instantiation in order to add a componentDidMount and allow rerendering
 var TaskList = ({tasks, handleClick}) => (
+  {
+    //once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
+    fetch('/links',{
+      method:'GET',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      }
+    })
+    .then((response)=> {
+      //dont know if I need the parse, but if I am putting it in as a strigified JSON will need this to make objects again
+      var tasks = JSON.parse(response)
+    })
+    .catch( (error) => {
+      console.log(error)
+    })
+  }
   <div className="tasklist righttasks">
-      <h2> To Do: </h2>
-      {dummytasks.map((task) =>
-        <div>
-          <Tasks
-            task={task}
-            handleClick={handleClick}
-          />
-          <br></br>
-        </div>
-      )}
+    <h2> To Do: </h2>
+    {tasks.map((task) =>
+      <div>
+        <Tasks
+          task={task}
+          handleClick={handleClick}
+        />
+        <br></br>
+      </div>
+    )}
 
   </div>
 );

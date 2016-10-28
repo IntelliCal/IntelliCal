@@ -1,4 +1,5 @@
 import React from 'react';
+import Request from 'react-http-request'
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // import TextField from 'material-ui/TextField';
@@ -53,6 +54,19 @@ class CustomTask extends React.Component {
     this.currentId++;
     this.tasks.push(task);
     console.log('the array of tasks is: ',this.tasks);
+      //need to adjust the next line to properly place information in the right place... getting a 404 not found error
+    fetch('/links',{
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      method:'POST',
+      //not sure this needs to be json.stringified, I think it does need to be though
+      body:JSON.stringify(task)
+    })
+    .catch((error) => {
+      console.log(error);
+    })
     this.setState({
       title:'',
       description:'',
