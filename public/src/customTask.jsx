@@ -48,58 +48,62 @@ class CustomTask extends React.Component {
       description: this.state.description,
       startTime: this.state.startTime,
       endTime: this.state.endTime
-    }
-    this.currentId++
-    this.tasks.push(task)
-    console.log('the array of tasks is: ',this.tasks)
+    };
+
+    this.currentId++;
+    this.tasks.push(task);
+    console.log('the array of tasks is: ',this.tasks);
     this.setState({
       title:'',
       description:'',
       startTime:'',
       endTime:''
-    })
+    });
   }
 
   render () {
     return (
-      <div className='inputForm'>
+      <div className='inputForm righttasks'>
         <form>
-          <h2> Add a Task </h2>
-          Title:
+          <h2> Add a Task: </h2>
+          <label>Title:</label>
           <input
             type='text'
             required={true}
             placeholder='Title'
             value={this.state.title}
             onChange={this.handleChange1}
-          /><br/> 
-          Description:
+          /><br />
+          <label>Description:</label>
           <input
             type='text'
+            placeholder='Description'
             required={false}
             value={this.state.description}
             onChange={this.handleChange2}
           /><br />
-          Start Time:   
+          <label>Start Time:</label>
           <input
             type='text'
+            placeholder='12:00'
             required={true}
             value={this.state.startTime}
             onChange={this.handleChange3}
-          /><br /> 
-          End Time:  
+          /><br />
+          <label>End Time:</label>
           <input
             type='text'
+            placeholder='14:00'
             required={true}
             value={this.state.endTime}
             onChange={this.handleChange4}
-          /><br /> 
+          /><br />
           <button onClick={this.addTask}>
             SUBMIT!
           </button>
-          <br /> 
-        </form> 
-      </div>  
+          <br />
+        </form>
+      </div>
     )
   }
 }
