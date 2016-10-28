@@ -25,7 +25,7 @@ class App extends React.Component {
         <div id="calApp">
           <Calendar tasks={this.state.task}/>
 
-          <div className='calTasks'>
+          <div id='calTasks'>
             <TaskList handleClick={this.handleClick.bind(this)}/>
 
             <CustomTask />

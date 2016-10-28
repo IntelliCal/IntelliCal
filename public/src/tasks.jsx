@@ -6,9 +6,16 @@ var Tasks = ({task, handleClick}) => (
   <div className="tasks">
     <div className="tasks-body">
       <div onClick={() => handleClick(task)}>
-        {task.title}
+        <div className='singleTask'>
+          <label>Task</label>
+          {task.title}
+
+        <div className="tasks-description">
+          <label>Details</label>
+          {task.description}
+          </div>
+        </div>
       </div>
-      <div className="tasks-description">{task.description}</div>
     </div>
   </div>
 );

@@ -44,7 +44,8 @@ class Calendar extends React.Component {
     super(props);
     this.state = {
       dates: this.createCalendar(),
-      tasks: this.props.tasks
+      tasks: this.props.tasks,
+      today: new Date()
     };
   }
 
@@ -56,14 +57,17 @@ class Calendar extends React.Component {
   }
 
   render() {
+    var today=this.state.today;
     var tasks = this.state.tasks;
     var calendar = [];
     for (var property in this.state.dates.calendar) {
       calendar.push(this.state.dates.calendar[property]);
     }
+
     function onClick() {
+    //do we just want this to == tasks rather than concatting on?
     this.tasks = this.tasks.concat(tasks);
-    console.log(this)
+    console.log(this);
     }
 
 
@@ -82,7 +86,7 @@ class Calendar extends React.Component {
                 {week.map(function(day, ind) {
                   // console.log('we are getting into the week part despite what erica thinks')
                   // console.log('day is: ',day)
-                  return <li onClick={onClick.bind(day)}> {day.day} {day.tasks}</li>
+                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} {day.tasks}</li>
                 })}
                 </ul>
               </div>
