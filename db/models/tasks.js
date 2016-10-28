@@ -24,6 +24,10 @@ module.exports = function(sequelize, DataTypes){
       type: DataTypes.DATE,
       field: "end"
     },
+    calendarDay: {
+      type: DataTypes.DATE,
+      field: "assignedDate"
+    },
     userId: {
       type: DataTypes.INTEGER,
       field: "userId"
