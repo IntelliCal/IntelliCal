@@ -34,8 +34,8 @@ function addToTaskList() {
 }
 
 var TaskList = ({tasks, handleClick}) => (
-  <div className="tasklist">
-      <h2> TASKS!!!!! </h2>
+  <div className="tasklist righttasks">
+      <h2> To Do: </h2>
       {dummytasks.map((task) =>
         <div>
           <Tasks

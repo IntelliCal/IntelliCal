@@ -3,6 +3,7 @@ body {
   padding: 0;
   width:100%;
   height:100%;
+  background-color:#EFEFEF;
 }
 
 #app {
@@ -13,7 +14,7 @@ body {
 }
 
 #calendar {
-  background:#5F9EA0;
+  background:#CAEBF2;
   height:70%;
   width:70%;
   border:2px solid black;
@@ -44,13 +45,13 @@ body {
   text-align:center;
 }
 #dates p, #dates li {
-  color:white;
+  color:black;
 }
 #header {
   width:100%;
   margin-left: 0;
   height: 20%;
-  color:white;
+  color:black;
   padding-top:20px;
   font-size: 40px;
   /*padding-bottom: 5px;*/
@@ -74,9 +75,9 @@ body {
 }
 
 .tasklist {
-  width: 100%;
-  float:right;
   display: inline-block;
+  border:1px solid gray;
+  height:100%;
 }
 .inputTasks {
   margin-top: 10px;
@@ -86,19 +87,56 @@ body {
   display: inline-block;
   width: 100%;
   float:right;
+  border:1px solid gray;
+  padding-bottom: 10px;
+  height:25%;
 }
 .tasks-description {
   font-size: .8em;
 }
 
-.calTasks {
+#calTasks {
   width:25%;
   float:right;
   display: inline-block;
+  height:70%;
+  padding-left: -30px
 }
+.today {
+  color:#FF3B3F !important;
+}
+
+.righttasks {
+  width: 90%;
+  float:left;
+  padding-left: 10px;
+  background-color: #A9A9A9;
+  margin-left: -50px;
+}
+.singleTask {
+  border-bottom: 1px solid gray;
+  width:100%;
+  margin-left: -5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 
 ul {
   list-style:none;
+}
+label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  width:50%;
+  text-align: left;
+  padding-bottom: 5px;
+}
+input {
+  display: inline-block;
+  float: left;
+  padding-bottom: 5px;
 }
 
 
