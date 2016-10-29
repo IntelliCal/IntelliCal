@@ -26,7 +26,8 @@
     "react-router": "^2.8.1",
     "react-tap-event-plugin": "^1.0.0",
     "sequelize": "^3.24.4",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
