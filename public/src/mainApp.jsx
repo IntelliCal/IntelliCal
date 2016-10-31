@@ -33,11 +33,11 @@ class App extends React.Component {
     })
     .then((json) => {
       console.log('json', json);
-      var tasks = json;
-      console.log(tasks);
-      this.setState({taskList:tasks});
+      // var tasks = json;
+      // console.log(tasks);
+      this.setState({taskList:json});
       console.log('this.state', this.state)
-      this.render();
+      // this.render();
     })
     .catch( (error) => {
       console.log(error);
