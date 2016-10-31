@@ -29,24 +29,25 @@ const dummytasks = [{
 
 // }
 //I think we need to make this a class instantiation in order to add a componentDidMount and allow rerendering
-var TaskList = ({tasks, handleClick}) => (
-  // {
-    //once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
-  //   fetch('/api/tasks',{
-  //     method:'GET',
-  //     headers:{
-  //       'Accept':'application/json',
-  //       'Content-Type':'application/json'
-  //     }
-  //   })
-  //   .then((response)=> {
-  //     //dont know if I need the parse, but if I am putting it in as a strigified JSON will need this to make objects again
-  //     var tasks = JSON.parse(response)
-  //   })
-  //   .catch( (error) => {
-  //     console.log(error)
-  //   })
-  // }
+var TaskList = ({handleClick}) => (
+  {
+    // once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
+    fetch('/api/tasks',{
+      method:'GET',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      }
+    })
+    .then((response)=> {
+      //dont know if I need the parse, but if I am putting it in as a strigified JSON will need this to make objects again
+      var tasks = JSON.parse(response)
+      console.log(response)
+    })
+    .catch( (error) => {
+      console.log(error)
+    })
+  }
   <div className="tasklist righttasks">
     <h2> To Do: </h2>
     {dummytasks.map((task) =>
