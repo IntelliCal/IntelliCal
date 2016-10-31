@@ -67,7 +67,7 @@ class CustomTask extends React.Component {
       body:JSON.stringify(task)
     })
     .then(()=>{
-      props.handleNewEntryClick(task)
+      this.props.handleNewEntryClick(task)
     })
     .catch((error) => {
       console.log(error);
