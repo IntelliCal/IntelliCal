@@ -14,7 +14,7 @@ body {
 }
 
 #calendar {
-  background:#CAEBF2;
+  border-radius: 8px;
   height:70%;
   width:70%;
   border:2px solid black;
@@ -49,16 +49,18 @@ body {
 }
 #header {
   width:100%;
+  background:#01579b;
   margin-left: 0;
   height: 20%;
-  color:black;
+  color:white;
   padding-top:20px;
   font-size: 40px;
   /*padding-bottom: 5px;*/
   text-align:center;
 }
 #header p {
-  width:99.8%;
+  background:#01579b;
+  width:100%;
   float:left;
   height:100%;
   margin-bottom: 0px;
@@ -72,6 +74,10 @@ body {
 .weekName {
   text-align:center;
   margin-top: 0px;
+}
+
+.well {
+  text-align: center;
 }
 
 .tasklist {
@@ -107,10 +113,11 @@ body {
 }
 
 .righttasks {
+  border-radius: 8px;
   width: 90%;
   float:left;
   padding-left: 10px;
-  background-color: #A9A9A9;
+  background-color: #CFD8DC;
   margin-left: -50px;
 }
 .singleTask {
