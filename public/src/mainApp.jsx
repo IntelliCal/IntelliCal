@@ -6,19 +6,20 @@ import CustomTask from './customTask.jsx';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       task: [],
-      taskList: ''
-    }
+      taskList: []
+    };
+
   }
 
   handleClick(task) {
     this.state.task.push(task);
     console.log(this.state.task);
   }
+
   componentDidMount() {
-      {
     // once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
     fetch('/api/tasks',{
       method:'GET',
@@ -28,14 +29,19 @@ class App extends React.Component {
       }
     })
     .then((response)=> {
-      //dont know if I need the parse, but if I am putting it in as a strigified JSON will need this to make objects again
-      var tasks = JSON.parse(response);
-      this.setState({taskList: tasks});
-      console.log(response);
+      return response.json()
+    })
+    .then((json) => {
+      console.log('json', json);
+      var tasks = json;
+      console.log(tasks);
+      this.setState({taskList:tasks});
+      console.log('this.state', this.state)
+
     })
     .catch( (error) => {
       console.log(error);
-    })
+    });
   }
 
 
@@ -48,7 +54,7 @@ class App extends React.Component {
 
           <div id='calTasks'>
             <TaskList handleClick={this.handleClick.bind(this)}
-                      tasks = {this.state.taskList.bind(this)}/>
+                      tasks={this.state.taskList}/>
 
             <CustomTask />
           </div>
