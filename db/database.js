@@ -5,8 +5,8 @@ var tasks      = require("./functions/tasksFunctions.js");
 var relational = require("./functions/relationalFunctions.js");
 
 //Set the relations
-models.users.hasMany(models.tasks);
-models.tasks.belongsTo(models.users);
+// models.users.hasMany(models.tasks);
+// models.tasks.belongsTo(models.users);
 
 //add all of the db functions to the utilities object
 var utilities = {};
