@@ -5,20 +5,20 @@ import Request from 'react-http-request'
 import 'whatwg-fetch'
 
 
-const dummytasks = [{
-  id: 1,
-  title: "do something",
-  description:"do it quickly",
-  startTime: '2016-10-24 17:00',
-  endTime: '2016-10-24 18:00'
-},
-{
-  id: 2,
-  title: "do something different",
-  description:"do it a little faster",
-  startTime: '2016-10-26 17:00',
-  endTime: '2016-10-26 19:00'
-}];
+// const dummytasks = [{
+//   id: 1,
+//   title: "do something",
+//   description:"do it quickly",
+//   startTime: '2016-10-24 17:00',
+//   endTime: '2016-10-24 18:00'
+// },
+// {
+//   id: 2,
+//   title: "do something different",
+//   description:"do it a little faster",
+//   startTime: '2016-10-26 17:00',
+//   endTime: '2016-10-26 19:00'
+// }];
 
   // function handleTaskListEntryClick() {
   //   dummytasks.push({id: });
