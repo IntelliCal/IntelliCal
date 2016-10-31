@@ -14,6 +14,10 @@ class App extends React.Component {
 
   }
 
+  handleNewEntryClick(task){
+    this.state.taskList.push(task)
+  }
+
   handleClick(task) {
     this.state.task.push(task);
     console.log(this.state.task);
@@ -56,7 +60,7 @@ class App extends React.Component {
             <TaskList handleClick={this.handleClick.bind(this)}
                       tasks={this.state.taskList}/>
 
-            <CustomTask />
+            <CustomTask handleNewEntryClick={this.handleNewEntryClick.bind(this)}/>
           </div>
         </div>
       </MuiThemeProvider>
