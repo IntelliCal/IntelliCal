@@ -15,7 +15,29 @@ class App extends React.Component {
   }
 
   handleNewEntryClick(task){
-    this.state.taskList.push(task)
+    fetch('/api/tasks',{
+      method:'GET',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      }
+    })
+    .then((response)=> {
+      return response.json()
+    })
+    .then((json) => {
+      console.log('json', json);
+      // var tasks = json;
+      // console.log(tasks);
+      this.setState({taskList:json});
+      console.log('this.state', this.state)
+      // this.render();
+    })
+    .catch( (error) => {
+      console.log(error);
+    });
+    // this.state.taskList.push(task)
+    // console.log('after you added a task',this.state.taskList)
   }
 
   handleClick(task) {
