@@ -1,12 +1,8 @@
 import React from 'react';
 import Tasks from './tasks.jsx';
-import ustomTask from './customTask.jsx';
-
-
-const style = {
-  marginRight: 20,
-};
-
+import CustomTask from './customTask.jsx';
+import Request from 'react-http-request'
+import 'whatwg-fetch'
 
 
 const dummytasks = [{
@@ -28,14 +24,14 @@ const dummytasks = [{
   //   dummytasks.push({id: });
   // }
 
-function addToTaskList() {
-  console.log(this, TextField.value)
+// function addToTaskList() {
+//   console.log(this, TextField.value)
 
-}
+// }
 //I think we need to make this a class instantiation in order to add a componentDidMount and allow rerendering
 var TaskList = ({tasks, handleClick}) => (
   // {
-  //   //once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
+    //once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
   //   fetch('/api/tasks',{
   //     method:'GET',
   //     headers:{

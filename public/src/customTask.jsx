@@ -12,7 +12,7 @@ class CustomTask extends React.Component {
   constructor(props){
     super(props)
     this.tasks = [];
-    this.currentId=0;
+    // this.currentId=0;
     this.state ={
       title:'',
       description:'',
@@ -45,36 +45,36 @@ class CustomTask extends React.Component {
   addTask(event){
     event.preventDefault();
     var task = {
-      id: this.currentId,
+      // id: this.currentId,
       title: this.state.title,
       description: this.state.description,
       startTime: this.state.startTime,
       endTime: this.state.endTime,
-      userId:0
+      userId: '1'
     };
 
-    this.currentId++;
+    // this.currentId++;
     this.tasks.push(task);
     console.log('the array of tasks is: ',this.tasks);
       //need to adjust the next line to properly place information in the right place... getting a 404 not found error
-    // fetch('/api/tasks',{
-    //   headers:{
-    //     'Accept':'application/json',
-    //     'Content-Type':'application/json'
-    //   },
-    //   method:'POST',
-    //   //not sure this needs to be json.stringified, I think it does need to be though
-    //   body:JSON.stringify(task)
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    // })
-    // this.setState({
-    //   title:'',
-    //   description:'',
-    //   startTime:'',
-    //   endTime:''
-    // });
+    fetch('/api/tasks',{
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      method:'POST',
+      //not sure this needs to be json.stringified, I think it does need to be though
+      body:JSON.stringify(task)
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    this.setState({
+      title:'',
+      description:'',
+      startTime:'',
+      endTime:''
+    });
   }
 
   render () {
