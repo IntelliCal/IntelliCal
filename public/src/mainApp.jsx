@@ -37,7 +37,7 @@ class App extends React.Component {
       console.log(tasks);
       this.setState({taskList:tasks});
       console.log('this.state', this.state)
-
+      this.render();
     })
     .catch( (error) => {
       console.log(error);
