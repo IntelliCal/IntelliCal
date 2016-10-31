@@ -66,6 +66,9 @@ class CustomTask extends React.Component {
       //not sure this needs to be json.stringified, I think it does need to be though
       body:JSON.stringify(task)
     })
+    .then(()=>{
+      this.forceUpdate()
+    })
     .catch((error) => {
       console.log(error);
     })
@@ -75,6 +78,8 @@ class CustomTask extends React.Component {
       startTime:'',
       endTime:''
     });
+
+
   }
 
   render () {
