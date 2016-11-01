@@ -55,6 +55,7 @@ class CustomTask extends React.Component {
 
     // this.currentId++;
     this.tasks.push(task);
+    this.props.newClick(task);
     console.log('the array of tasks is: ',this.tasks);
       //need to adjust the next line to properly place information in the right place... getting a 404 not found error
     fetch('/api/tasks',{
@@ -67,11 +68,13 @@ class CustomTask extends React.Component {
       body:JSON.stringify(task)
     })
     .then(()=>{
-      this.props.handleNewEntryClick(task)
+      // this.props.handleNewEntryClick(task);
+      console.log('test');
     })
     .catch((error) => {
       console.log(error);
     })
+
     this.setState({
       title:'',
       description:'',

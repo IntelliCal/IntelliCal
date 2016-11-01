@@ -14,36 +14,18 @@ class App extends React.Component {
 
   }
 
-  handleNewEntryClick(task){
-    fetch('/api/tasks',{
-      method:'GET',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type':'application/json'
-      }
-    })
-    .then((response)=> {
-      return response.json()
-    })
-    .then((json) => {
-      console.log('json', json);
-      // var tasks = json;
-      // console.log(tasks);
-      this.setState({taskList:json});
-      console.log('this.state', this.state)
-      // this.render();
-    })
-    .catch( (error) => {
-      console.log(error);
-    });
-    // this.state.taskList.push(task)
-    // console.log('after you added a task',this.state.taskList)
-  }
-
   handleClick(task) {
     this.state.task.push(task);
-    console.log(this.state.task);
+    var b = this.state.task;
+    this.setState({task: b});
   }
+
+  newClick(task) {
+    this.state.taskList.push(task);
+    var a = this.state.taskList;
+    this.setState({taskList: a});
+  }
+
 
   componentDidMount() {
     // once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
@@ -70,7 +52,6 @@ class App extends React.Component {
     });
   }
 
-
   render() {
 
     return (
@@ -82,7 +63,7 @@ class App extends React.Component {
             <TaskList handleClick={this.handleClick.bind(this)}
                       tasks={this.state.taskList}/>
 
-            <CustomTask handleNewEntryClick={this.handleNewEntryClick.bind(this)}/>
+            <CustomTask newClick={this.newClick.bind(this)}/>
           </div>
         </div>
       </MuiThemeProvider>
