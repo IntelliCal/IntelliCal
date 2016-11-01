@@ -17,6 +17,7 @@ class App extends React.Component {
   handleClick(task) {
     this.state.task.push(task);
     var b = this.state.task;
+    console.log(b);
     this.setState({task: b});
   }
 
