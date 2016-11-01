@@ -24,21 +24,23 @@ body {
   width:100%;
 }
 #dates {
-  margin-top: 40px;
+  margin-top: 16px;
 }
 #dates > div {
-  width: 14.28%;
+  width: calc(100%/7);
   float:left;
 }
 
 #dates > div ul {
-  min-height:300px;
-  width:100%;
-  border: 1px solid black;
+    min-height: 300px;
+    width: 100%;
+    border: 1px solid black;
+    border-left: 0;
 }
 #dates > div > ul > li {
   text-align:center;
   margin-bottom: 50%;
+  margin-bottom: 100px;
   border:1px solid black;
 }
 #dates p {
@@ -61,10 +63,12 @@ body {
 #header p {
   background:#01579b;
   width:100%;
-  float:left;
+  /*float:left;*/
+  text-align:center;
   height:100%;
   margin-bottom: 0px;
   margin-top:0px;
+  padding-bottom:24px;
 }
 
 .nopaddingmargin {
@@ -103,29 +107,30 @@ body {
 
 #calTasks {
   width:25%;
-  float:right;
+  /*float:right;*/
   display: inline-block;
   height:70%;
   padding-left: -30px
 }
-.today {
-  color:#FF3B3F !important;
+.nopaddingmargin .today {
+  background:#FF3B3F;
 }
 
 .righttasks {
   border-radius: 8px;
   width: 90%;
-  float:left;
-  padding-left: 10px;
+  float:right;
+  /*padding-left: 10px;*/
   background-color: #CFD8DC;
-  margin-left: -50px;
+  /*margin-left: -50px;*/
 }
 .singleTask {
   border-bottom: 1px solid gray;
   width:100%;
-  margin-left: -5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  /*margin-left: -5px;*/
+/*  padding-top: 5px;
+  padding-bottom: 5px;*/
+  padding: 12px 0;
 }
 
 
@@ -146,7 +151,76 @@ input {
   padding-bottom: 5px;
 }
 
+.nopaddingmargin li {
+  border-right: 0 !important;
+  border-left: 0 !important;
+  background: #929292;
+  color: #e4e4e4 !important;
+}
 
+.nopaddingmargin li:first-of-type {
+  border-top:0 !important;
+}
 
+label {
+  padding:  0 0 0 12px;
+  margin: 0 !important;
+}
 
+.task-title {
 
+}
+.task-desc {
+
+}
+
+.theday {
+
+}
+
+.taskList div .tasks {
+  padding
+}
+
+.tasklist div:last-of-type .tasks * {
+  border-width: 0 !important;
+}
+
+.tasklist div br {
+  display:none;
+}
+
+h2 {
+  padding: 0 0 0 12px;
+}
+
+* {
+  vertical-align: top;
+}
+form button {
+  margin: 0 0 0 12px;
+}
+
+form label {
+  line-height:30px;
+  width:30%;
+}
+form input {
+  width:50%;
+  margin-right:20%;
+  padding-left:8px;
+}
+.inputForm.righttasks {
+  margin-top:24px;
+}
+
+.nopaddingmargin:last-of-type .nopaddingmargin {
+  border-right: 0 !important;
+}
+.nopaddingmargin li:nth-of-type(6) < ul {
+  background:yellow;
+}
+
+input {
+  margin-bottom: 4px !important;
+}

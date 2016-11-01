@@ -86,7 +86,7 @@ class Calendar extends React.Component {
                 {week.map(function(day, ind) {
                   // console.log('we are getting into the week part despite what erica thinks')
                   // console.log('day is: ',day)
-                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} {day.tasks}</li>
+                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span></li>
                 })}
                 </ul>
               </div>

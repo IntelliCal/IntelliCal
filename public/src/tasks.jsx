@@ -8,11 +8,11 @@ var Tasks = ({task, handleClick}) => (
       <div onClick={() => handleClick(task)}>
         <div className='singleTask'>
           <label>Task</label>
-          {task.title}
+          <span className="task-title">{task.title}</span>
 
         <div className="tasks-description">
           <label>Details</label>
-          {task.description}
+          <span className="task-desc">{task.description}</span>
           </div>
         </div>
       </div>
