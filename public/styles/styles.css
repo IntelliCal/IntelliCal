@@ -224,3 +224,7 @@ form input {
 input {
   margin-bottom: 4px !important;
 }
+
+.singleTask label {
+  width:20%;
+}
