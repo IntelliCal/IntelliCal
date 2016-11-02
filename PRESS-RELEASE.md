@@ -1,6 +1,5 @@
 # Hermes #
 
-
 <!--
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
 
@@ -43,6 +42,3 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Closing and Call to Action ##
   If you have any feedback or additional features you'd like to see, please let us know by making a pull request.
-
-
-
