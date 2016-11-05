@@ -92,12 +92,13 @@ class Calendar extends React.Component {
 
                 {week.map(function(day, ind) {
 
-                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span></li>
-
-                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} {day.tasks}</li>
-
-                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span>
-                    </li>
+                  return (
+                    <div className="nopaddingmargin">
+                      <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span>
+                      </li>
+                      <p className="event"><a href="#">event</a></p>
+                    </div>
+                    )
                 })}
                 </ul>
               </div>
