@@ -74,6 +74,7 @@ body {
 .nopaddingmargin {
   margin: 0;
   padding:0;
+  text-align: center;
 }
 .weekName {
   text-align:center;
@@ -114,6 +115,10 @@ body {
 }
 .nopaddingmargin .today {
   background:#FF3B3F;
+}
+
+.nopaddingmargin .event {
+  margin: 20%;
 }
 
 .righttasks {
