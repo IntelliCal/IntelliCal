@@ -96,7 +96,11 @@ class Calendar extends React.Component {
                     <div className="nopaddingmargin">
                       <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span>
                       </li>
-                      <p className="event"><a href="#">event</a></p>
+                      {tasks.map((task, key) => {
+                        return(
+                          <p key={key} className={!task ? 'normal' : "event"}>{task.title}</p>
+                        )
+                      })}
                     </div>
                     )
                 })}
