@@ -29,6 +29,21 @@ class App extends React.Component {
     this.setState({task: newTask, taskList: allTasks});
   }
 
+  deleteATask(task) {
+    if (typeof task.id === "number") {
+      fetch('/api/tasks/' + task.id, {
+        method: 'DELETE'
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(this.componentDidMount())
+      .catch(error => {
+        console.err('error');
+      })
+    }
+  }
+
   componentDidMount() {
     // once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
     fetch('/api/tasks',{
@@ -62,7 +77,7 @@ class App extends React.Component {
           <Calendar tasks={this.state.task}/>
 
           <div id='calTasks'>
-            <TaskList handleClick={this.handleClick.bind(this)}
+            <TaskList handleClick={this.deleteATask.bind(this)}
                       tasks={this.state.taskList}/>
 
             <CustomTask newClick={this.newClick.bind(this)}/>

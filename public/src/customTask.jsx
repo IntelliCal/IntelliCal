@@ -45,7 +45,7 @@ class CustomTask extends React.Component {
   addTask(event){
     event.preventDefault();
     var task = {
-      // id: this.currentId,
+      id: 1,
       title: this.state.title,
       description: this.state.description,
       startTime: this.state.startTime,
@@ -56,7 +56,7 @@ class CustomTask extends React.Component {
     // this.currentId++;
     this.tasks.push(task);
     this.props.newClick(task);
-    console.log('the array of tasks is: ',this.tasks);
+    //console.log('the array of tasks is: ',this.tasks);
       //need to adjust the next line to properly place information in the right place... getting a 404 not found error
     fetch('/api/tasks',{
       headers:{
@@ -76,6 +76,7 @@ class CustomTask extends React.Component {
     })
 
     this.setState({
+      id: task.id + 1,
       title:'',
       description:'',
       startTime:'',
