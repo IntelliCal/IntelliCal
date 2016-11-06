@@ -16,13 +16,11 @@ class CustomTask extends React.Component {
     this.state ={
       title:'',
       description:'',
-      startTime:'',
-      endTime:''
+      day: ''
     }
     this.handleChange1 = this.handleChange1.bind(this)
     this.handleChange2 = this.handleChange2.bind(this)
     this.handleChange3 = this.handleChange3.bind(this)
-    this.handleChange4 = this.handleChange4.bind(this)
     this.addTask = this.addTask.bind(this)
   }
 
@@ -35,7 +33,7 @@ class CustomTask extends React.Component {
   }
 
   handleChange3(event){
-    this.setState({startTime: event.target.value})
+    this.setState({day: event.target.value})
   }
 
   handleChange4(event){
@@ -45,11 +43,9 @@ class CustomTask extends React.Component {
   addTask(event){
     event.preventDefault();
     var task = {
-      id: 1,
       title: this.state.title,
       description: this.state.description,
-      startTime: this.state.startTime,
-      endTime: this.state.endTime,
+      day: this.state.day,
       userId: '1'
     };
 
@@ -76,11 +72,9 @@ class CustomTask extends React.Component {
     })
 
     this.setState({
-      id: task.id + 1,
       title:'',
       description:'',
-      startTime:'',
-      endTime:''
+      day: ''
     });
 
 
@@ -96,6 +90,7 @@ class CustomTask extends React.Component {
             type='text'
             required={true}
             placeholder='Title'
+            minLength='9'
             value={this.state.title}
             onChange={this.handleChange1}
           /><br />
@@ -103,25 +98,17 @@ class CustomTask extends React.Component {
           <input
             type='text'
             placeholder='Description'
-            required={false}
+            required={true}
             value={this.state.description}
             onChange={this.handleChange2}
           /><br />
-          <label>Start Time:</label>
+          <label>Select Day:</label>
           <input
-            type='text'
-            placeholder='12:00'
+            type='date'
+            placeholder='eg. 12'
             required={true}
-            value={this.state.startTime}
+            value={this.state.day}
             onChange={this.handleChange3}
-          /><br />
-          <label>End Time:</label>
-          <input
-            type='text'
-            placeholder='14:00'
-            required={true}
-            value={this.state.endTime}
-            onChange={this.handleChange4}
           /><br />
           <button onClick={this.addTask}>
             SUBMIT!
