@@ -76,6 +76,9 @@ body {
   padding:0;
   text-align: center;
 }
+.nopaddingmargin div {
+  height: 90px;
+}
 .weekName {
   text-align:center;
   margin-top: 0px;
@@ -117,8 +120,10 @@ body {
   background:#FF3B3F;
 }
 
-.nopaddingmargin .event {
-  margin: 20%;
+p.event {
+  margin-top: -125px;
+  padding-left: 20px;
+  display: inline-block;
 }
 
 .righttasks {
@@ -161,6 +166,7 @@ input {
   border-left: 0 !important;
   background: #929292;
   color: #e4e4e4 !important;
+  margin: 0% 0% 100% 0%;
 }
 
 .nopaddingmargin li:first-of-type {
