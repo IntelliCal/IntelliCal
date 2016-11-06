@@ -23,10 +23,11 @@ class App extends React.Component {
 
   newClick(task) {
     this.state.taskList.push(task);
-    var a = this.state.taskList;
-    this.setState({taskList: a});
+    this.state.task.push(task);
+    var allTasks = this.state.taskList;
+    var newTask = this.state.task;
+    this.setState({task: newTask, taskList: allTasks});
   }
-
 
   componentDidMount() {
     // once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
