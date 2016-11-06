@@ -97,9 +97,20 @@ class Calendar extends React.Component {
                       <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span>
                       </li>
                       {tasks.map((task, key) => {
-                        return(
-                          <p key={key} className={!task ? 'normal' : "event"}>{task.title}</p>
-                        )
+                        //console.log('user selected',task.day,'day in db',day)
+                        var selectedDay = 0;
+                        if( day.day >= 10) {
+                          selectedDay = task.day.slice(-2);
+                        } else if(day.day <= 1) {
+                          selectedDay = task.day.slice(-1);
+                        }
+                        if(parseInt(selectedDay) === parseInt(day.day)) {
+                          console.log('selected day? ',selectedDay, 'this is what we want',day.day);
+                          return(
+                            <p key={key} className={!task ? 'normal' : "event"}><a href="#">{task.title}</a>
+                            </p>
+                          )
+                        }
                       })}
                     </div>
                     )
