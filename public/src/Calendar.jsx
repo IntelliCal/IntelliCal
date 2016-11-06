@@ -52,7 +52,6 @@ class Calendar extends React.Component {
     //creating object of dates
     this.state = {
       dates: this.createCalendar(),
-      tasks: this.props.tasks,
       today: new Date()
     };
   }
@@ -64,9 +63,13 @@ class Calendar extends React.Component {
     return month;
   }
 
+  componentDidMount() {
+    this.render();
+  }
+
   render() {
     var today=this.state.today;
-    var tasks = this.state.tasks;
+    var all = this.props.taskList;
     var calendar = [];
     for (var property in this.state.dates.calendar) {
       calendar.push(this.state.dates.calendar[property]);
@@ -96,12 +99,12 @@ class Calendar extends React.Component {
                     <div className="nopaddingmargin">
                       <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span>
                       </li>
-                      {tasks.map((task, key) => {
-                        //console.log('user selected',task.day,'day in db',day)
+
+                      {all.map((task, key) => {
                         var selectedDay = 0;
                         if( day.day >= 10) {
                           selectedDay = task.day.slice(-2);
-                        } else if(day.day <= 1) {
+                        } else if(day.day <= 1 && day.day >= 9) {
                           selectedDay = task.day.slice(-1);
                         }
                         if(parseInt(selectedDay) === parseInt(day.day)) {

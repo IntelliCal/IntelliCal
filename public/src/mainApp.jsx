@@ -74,12 +74,9 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div id="calApp">
-          <Calendar tasks={this.state.task}/>
+          <Calendar taskList={this.state.taskList}/>
 
           <div id='calTasks'>
-            <TaskList handleClick={this.deleteATask.bind(this)}
-                      tasks={this.state.taskList}/>
-
             <CustomTask newClick={this.newClick.bind(this)}/>
           </div>
         </div>
