@@ -7,6 +7,12 @@ import 'whatwg-fetch'
 // import FloatingActionButton from 'material-ui/FloatingActionButton';
 // import ContentAdd from 'material-ui/svg-icons/content/add';
 // injectTapEventPlugin();
+var today = new Date();
+var month = today.getMonth();
+var date = today.getDate();
+var datePadding = date < 10 ? ('0' + date) : date;
+var monthPadding = (month < 10) ? ('0' + month + 1) : month + 1;
+var fullDate = today.getFullYear() + '-' + monthPadding + '-' + datePadding;
 
 class CustomTask extends React.Component {
   constructor(props){
@@ -16,7 +22,7 @@ class CustomTask extends React.Component {
     this.state ={
       title:'',
       description:'',
-      day: ''
+      day: fullDate
     }
     this.handleChange1 = this.handleChange1.bind(this)
     this.handleChange2 = this.handleChange2.bind(this)
@@ -74,7 +80,7 @@ class CustomTask extends React.Component {
     this.setState({
       title:'',
       description:'',
-      day: ''
+      day: fullDate
     });
 
 
@@ -91,6 +97,7 @@ class CustomTask extends React.Component {
             required={true}
             placeholder='Title'
             minLength='9'
+            maxLength='12'
             value={this.state.title}
             onChange={this.handleChange1}
           /><br />
@@ -105,7 +112,6 @@ class CustomTask extends React.Component {
           <label>Select Day:</label>
           <input
             type='date'
-            placeholder='eg. 12'
             required={true}
             value={this.state.day}
             onChange={this.handleChange3}
