@@ -5,7 +5,7 @@ var Tasks = ({task, handleClick}) => (
 
   <div className="tasks">
     <div className="tasks-body">
-      <div onClick={() => handleClick(task)}>
+      <div >
         <div className='singleTask'>
           <label>Task</label>
           <span className="task-title">{task.title}</span>

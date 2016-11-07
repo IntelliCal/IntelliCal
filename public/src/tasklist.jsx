@@ -50,6 +50,7 @@ var TaskList = ({handleClick, tasks}) => (
   // }
   <div className="tasklist righttasks">
     <h2> To Do: </h2>
+    <button onClick={() => handleClick(tasks)}>X</button>
     {tasks.map((task) =>
       <div>
         <Tasks

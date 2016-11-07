@@ -76,7 +76,8 @@ class Calendar extends React.Component {
     }
 
     function onClick() {
-    this.tasks = this.tasks.concat(tasks);
+      console.log('show');
+      $('.tasklist').show();
     }
 
     return (
@@ -110,7 +111,7 @@ class Calendar extends React.Component {
                         if(parseInt(selectedDay) === parseInt(day.day)) {
                           console.log('selected day? ',selectedDay, 'this is what we want',day.day);
                           return(
-                            <p key={key} className={!task ? 'normal' : "event"}><a href="#">{task.title}</a>
+                            <p key={key} className={!task ? 'normal' : "event"}><a onClick={onClick}>{task.title}</a>
                             </p>
                           )
                         }

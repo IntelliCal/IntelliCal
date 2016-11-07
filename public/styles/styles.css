@@ -89,7 +89,7 @@ body {
 }
 
 .tasklist {
-  display: inline-block;
+  display: none;
   border:1px solid gray;
   height:100%;
 }
