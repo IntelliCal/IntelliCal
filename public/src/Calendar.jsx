@@ -70,14 +70,10 @@ class Calendar extends React.Component {
   render() {
     var today=this.state.today;
     var all = this.props.taskList;
+    var transfer = this.props.transferTask;
     var calendar = [];
     for (var property in this.state.dates.calendar) {
       calendar.push(this.state.dates.calendar[property]);
-    }
-
-    function onClick() {
-      console.log('show');
-      $('.tasklist').show();
     }
 
     return (
@@ -92,26 +88,23 @@ class Calendar extends React.Component {
             return (
              <div className="nopaddingmargin">
                 <p className="weekName">{dayOfWeek[i]}</p>
-                <ul className="nopaddingmargin">
+                <ul id={i} className="nopaddingmargin">
 
                 {week.map(function(day, ind) {
 
                   return (
                     <div className="nopaddingmargin">
-                      <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span>
+                      <li className={day.day == today.getDate()?"today":null}> {day.day} <span className="theday">{day.tasks}</span>
                       </li>
 
                       {all.map((task, key) => {
                         var selectedDay = 0;
-                        if( day.day >= 10) {
-                          selectedDay = task.day.slice(-2);
-                        } else if(day.day <= 1 && day.day >= 9) {
-                          selectedDay = task.day.slice(-1);
-                        }
-                        if(parseInt(selectedDay) === parseInt(day.day)) {
-                          console.log('selected day? ',selectedDay, 'this is what we want',day.day);
+                        selectedDay = task.day.slice(-2);
+
+                        if(parseInt(day.day) === parseInt(selectedDay)) {
+                          //console.log('selected day? ',selectedDay, 'this is what we want',day.day);
                           return(
-                            <p key={key} className={!task ? 'normal' : "event"}><a onClick={onClick}>{task.title}</a>
+                            <p key={key} className={!task ? 'normal' : "event"}><a onClick={() => transfer(task)}>{task.title}</a>
                             </p>
                           )
                         }

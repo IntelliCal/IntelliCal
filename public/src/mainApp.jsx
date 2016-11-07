@@ -9,12 +9,30 @@ class App extends React.Component {
     super(props);
     this.state = {
       task: [],
-      taskList: []
+      taskList: [],
+      event: {}
     };
 
   }
 
+  transferTask(task) {
+    if (typeof task.id === "number") {
+      fetch('/api/tasks/' + task.id, {
+        method: 'GET'
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(json => {
+        this.setState({event: json});
+        console.log('this is new event', this.state.event);
+        $('.tasklist').show();
+      })
+    }
+  }
+
   handleClick(task) {
+    console.log(task)
     $('.tasklist').hide();
     // this.state.task.push(task);
     // var b = this.state.task;
@@ -23,11 +41,12 @@ class App extends React.Component {
   }
 
   newClick(task) {
-    this.state.taskList.push(task);
-    this.state.task.push(task);
     var allTasks = this.state.taskList;
     var newTask = this.state.task;
-    this.setState({task: newTask, taskList: allTasks});
+    allTasks.push(task);
+    newTask.push(task);
+    this.setState({event: task, task: newTask, taskList: allTasks});
+    $('.tasklist').show();
   }
 
   deleteATask(task) {
@@ -75,11 +94,11 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div id="calApp">
-          <Calendar taskList={this.state.taskList}/>
+          <Calendar taskList={this.state.taskList} transferTask={this.transferTask.bind(this)}/>
 
           <div id='calTasks'>
             <TaskList handleClick={this.handleClick.bind(this)}
-                      tasks={this.state.taskList}/>
+                      event={this.state.event}/>
 
             <CustomTask newClick={this.newClick.bind(this)}/>
           </div>
