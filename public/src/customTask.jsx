@@ -18,7 +18,6 @@ class CustomTask extends React.Component {
   constructor(props){
     super(props)
     this.tasks = [];
-    // this.currentId=0;
     this.state ={
       title:'',
       description:'',
