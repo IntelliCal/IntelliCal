@@ -110,7 +110,7 @@ class Calendar extends React.Component {
                         }
                       })}
                     </div>
-                    )
+                  )
                 })}
                 </ul>
               </div>

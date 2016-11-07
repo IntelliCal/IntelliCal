@@ -97,10 +97,9 @@ class App extends React.Component {
           <Calendar taskList={this.state.taskList} transferTask={this.transferTask.bind(this)}/>
 
           <div id='calTasks'>
+            <CustomTask newClick={this.newClick.bind(this)}/>
             <TaskList handleClick={this.handleClick.bind(this)}
                       event={this.state.event}/>
-
-            <CustomTask newClick={this.newClick.bind(this)}/>
           </div>
         </div>
       </MuiThemeProvider>
