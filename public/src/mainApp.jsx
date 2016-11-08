@@ -58,6 +58,7 @@ class App extends React.Component {
         return response.json();
       })
       .then(this.componentDidMount())
+      .then($('.tasklist').hide())
       .catch(error => {
         console.err('error');
       })
@@ -99,6 +100,7 @@ class App extends React.Component {
           <div id='calTasks'>
             <CustomTask newClick={this.newClick.bind(this)}/>
             <TaskList handleClick={this.handleClick.bind(this)}
+                      deleteATask={this.deleteATask.bind(this)}
                       event={this.state.event}/>
           </div>
         </div>

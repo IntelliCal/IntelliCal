@@ -54,11 +54,11 @@ class TaskList extends React.Component {
   render() {
     var event = this.props.event;
     var closeButton = this.props.handleClick;
+    var deleteButton = this.props.deleteATask;
     if (event !== null) {
       return (
         <div className="tasklist righttasks">
           <h2> To Do: </h2>
-          <button onClick={() => closeButton(event)}>X</button>
           <div className="tasks">
             <div className="tasks-body">
               <div >
@@ -72,6 +72,10 @@ class TaskList extends React.Component {
                   </div>
                 </div>
               </div>
+              <button className='done' onClick={() => {
+                                                  deleteButton(event);
+                                                }
+              }>Task Completed</button>
             </div>
           </div>
         </div>
