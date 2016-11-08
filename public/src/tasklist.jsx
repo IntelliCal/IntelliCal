@@ -29,7 +29,10 @@ import 'whatwg-fetch'
 
 // }
 //I think we need to make this a class instantiation in order to add a componentDidMount and allow rerendering
-var TaskList = ({handleClick, tasks}) => (
+class TaskList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   // {
   //   // once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
   //   fetch('/api/tasks',{
@@ -48,20 +51,39 @@ var TaskList = ({handleClick, tasks}) => (
   //     console.log(error)
   //   })
   // }
-  <div className="tasklist righttasks">
-    <h2> To Do: </h2>
-    {tasks.map((task) =>
-      <div>
-        <Tasks
-          task={task}
-          handleClick={handleClick}
-        />
-        <br></br>
-      </div>
-    )}
+  render() {
+    var event = this.props.event;
+    var closeButton = this.props.handleClick;
+    var deleteButton = this.props.deleteATask;
+    if (event !== null) {
+      return (
+        <div className="tasklist righttasks">
+          <h2> To Do: </h2>
+          <div className="tasks">
+            <div className="tasks-body">
+              <div >
+                <div className='singleTask'>
+                  <label>Task</label>
+                  <span className="task-title">{event.title}</span>
 
-  </div>
-);
+                <div className="tasks-description">
+                  <label>Details</label>
+                  <span className="task-desc">{event.description}</span>
+                  </div>
+                </div>
+              </div>
+              <button className='done' onClick={() => {
+                                                  deleteButton(event);
+                                                }
+              }>Task Completed</button>
+            </div>
+          </div>
+        </div>
+      )
+    }
+    return(<div></div>)
+  }
+}
 
 // TaskList.propTypes = {
 //   task: React.PropTypes.array.isRequired

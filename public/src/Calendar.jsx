@@ -52,7 +52,6 @@ class Calendar extends React.Component {
     //creating object of dates
     this.state = {
       dates: this.createCalendar(),
-      tasks: this.props.tasks,
       today: new Date()
     };
   }
@@ -64,16 +63,17 @@ class Calendar extends React.Component {
     return month;
   }
 
+  componentDidMount() {
+    this.render();
+  }
+
   render() {
     var today=this.state.today;
-    var tasks = this.state.tasks;
+    var all = this.props.taskList;
+    var transfer = this.props.transferTask;
     var calendar = [];
     for (var property in this.state.dates.calendar) {
       calendar.push(this.state.dates.calendar[property]);
-    }
-
-    function onClick() {
-    this.tasks = this.tasks.concat(tasks);
     }
 
     return (
@@ -88,16 +88,29 @@ class Calendar extends React.Component {
             return (
              <div className="nopaddingmargin">
                 <p className="weekName">{dayOfWeek[i]}</p>
-                <ul className="nopaddingmargin">
+                <ul id={i} className="nopaddingmargin">
 
                 {week.map(function(day, ind) {
 
-                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span></li>
+                  return (
+                    <div className="nopaddingmargin">
+                      <li className={day.day == today.getDate()?"today":null}> {day.day} <span className="theday">{day.tasks}</span>
+                      </li>
 
-                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} {day.tasks}</li>
+                      {all.map((task, key) => {
+                        var selectedDay = 0;
+                        selectedDay = task.day.slice(-2);
 
-                  return <li className={day.day == today.getDate()?"today":null} onClick={onClick.bind(day)}> {day.day} <span className="theday">{day.tasks}</span>
-                    </li>
+                        if(parseInt(day.day) === parseInt(selectedDay)) {
+                          //console.log('selected day? ',selectedDay, 'this is what we want',day.day);
+                          return(
+                            <p key={key} className={!task ? 'normal' : "event"}><a onClick={() => transfer(task)}>{task.title}</a>
+                            </p>
+                          )
+                        }
+                      })}
+                    </div>
+                  )
                 })}
                 </ul>
               </div>

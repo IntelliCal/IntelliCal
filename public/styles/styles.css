@@ -1,16 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  width:100%;
   height:100%;
   background-color:#EFEFEF;
 }
 
 #app {
-  width:100%;
-  /*margin:auto;*/
-  margin-top:10px;
-  margin-left: 20px;
+  margin-left:auto;
+  margin-right:auto;
+  width:1200px;
 }
 
 #calendar {
@@ -74,6 +72,10 @@ body {
 .nopaddingmargin {
   margin: 0;
   padding:0;
+  text-align: center;
+}
+.nopaddingmargin div {
+  height: 90px;
 }
 .weekName {
   text-align:center;
@@ -85,7 +87,7 @@ body {
 }
 
 .tasklist {
-  display: inline-block;
+  display: none;
   border:1px solid gray;
   height:100%;
 }
@@ -116,6 +118,12 @@ body {
   background:#FF3B3F;
 }
 
+p.event {
+  margin-top: -115px;
+  padding-bottom: 105px;
+  display: block;
+}
+
 .righttasks {
   border-radius: 8px;
   width: 90%;
@@ -125,7 +133,6 @@ body {
   /*margin-left: -50px;*/
 }
 .singleTask {
-  border-bottom: 1px solid gray;
   width:100%;
   /*margin-left: -5px;*/
 /*  padding-top: 5px;
@@ -156,6 +163,7 @@ input {
   border-left: 0 !important;
   background: #929292;
   color: #e4e4e4 !important;
+  margin: 0% 0% 100% 0%;
 }
 
 .nopaddingmargin li:first-of-type {

@@ -16,13 +16,9 @@ module.exports = function(sequelize, DataTypes){
       type: DataTypes.STRING,
       field: "description"
     },
-    startTime: {
-      type: DataTypes.DATE,
-      field: "start"
-    },
-    endTime: {
-      type: DataTypes.DATE,
-      field: "end"
+    day: {
+      type: DataTypes.STRING,
+      field: "day"
     },
     // calendarDay: {
     //   type: DataTypes.DATE,
