@@ -32,6 +32,25 @@ import 'whatwg-fetch'
 class TaskList extends React.Component {
   constructor(props) {
     super(props);
+  }
+  // {
+  //   // once again gotta figure out the actual fetch path... comp says 'http://localhost:1337/links' 404'd
+  //   fetch('/api/tasks',{
+  //     method:'GET',
+  //     headers:{
+  //       'Accept':'application/json',
+  //       'Content-Type':'application/json'
+  //     }
+  //   })
+  //   .then((response)=> {
+  //     //dont know if I need the parse, but if I am putting it in as a strigified JSON will need this to make objects again
+  //     var tasks = JSON.parse(response)
+  //     console.log(response)
+  //   })
+  //   .catch( (error) => {
+  //     console.log(error)
+  //   })
+  // }
   render() {
     var event = this.props.event;
     var closeButton = this.props.handleClick;
